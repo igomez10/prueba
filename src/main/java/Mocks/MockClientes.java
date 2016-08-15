@@ -21,13 +21,12 @@ import Excepciones.LogicaRestauranteException;
 
 public class MockClientes 
 {	
-    // objeto para presentar logs de las operaciones
+    // Objeto para presentar logs de las operaciones
     private final static Logger logger = Logger.getLogger(MockClientes.class.getName());
 	
-	// arreglo de clientes
+    // Arreglo de clientes.
     private static ArrayList<ClienteDTO> clientes;
 
-    // TODO: ACA SE PONEN LAS COLECCIONES DE LAS CLASES
     
     /**
      * Constructor. Crea los datos de ejemplo.
@@ -43,19 +42,19 @@ public class MockClientes
             clientes.add(new ClienteDTO(4L, "Nombre4", "Apellido4", "Direccion4"));
         }
         
-    	// indica que se muestren todos los mensajes
+    	// Indica que se muestren todos los mensajes
     	logger.setLevel(Level.INFO);
     	
-    	// muestra información 
+    	// Muestra información 
     	logger.info("Inicializada la lista de clientes");
     	logger.info("Clientes:\t" + clientes );
     }    
     
-	/**
-	 * Obtiene el listado de personas. 
-	 * @return lista de ciudades
-	 * @throws CityLogicException cuando no existe la lista en memoria  
-	 */    
+    /**
+    * Obtiene el listado de personas. 
+    * @return Lista de ciudades
+    * @throws LogicaRestauranteException cuando no existe la lista en memoria  
+    */    
     public List<ClienteDTO> darClientes() throws LogicaRestauranteException 
     {
     	if (clientes == null) 
@@ -63,39 +62,63 @@ public class MockClientes
     		logger.severe("Error interno: lista de clientes no existe.");
     		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
     	}
-    	logger.info("retornando todas las ciudades");
+    	logger.info("Retornando todas las ciudades");
     	return clientes;
+    }
+    
+        /**
+    * Obtiene el cliente con el id que entra por parametro. 
+    * @return ClienteDTO Cliente buscado.
+    * @throws LogicaRestauranteException Cuando no existe un cliente con el id buscado.  
+    */    
+    public ClienteDTO darCliente(Long pId) throws LogicaRestauranteException 
+    {
+    	if (clientes == null) 
+        {
+    		logger.severe("Error interno: lista de clientes no existe.");
+    		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
+    	}
+        
+        for(ClienteDTO cliente:clientes)
+        {
+            if(cliente.darId().equals(pId))
+            {
+                logger.info("Retornando el cliente con id "+pId);
+                return cliente;
+            }
+        }
+    	logger.severe("Error de uso: Se pidio un cliente que no existe.");
+    	throw new LogicaRestauranteException("Error de uso: Se pidio un cliente que no existe.");
     }
 
     /**
      * Agrega un cliente al sistema.
      * @param nuevoCliente Cliente a agregar.
-     * @throws CityLogicException cuando ya existe un Cliente con el id suministrado
+     * @throws LogicaRestauranteException Cuando ya existe un Cliente con el id suministrado.
      * @return Cliente agregado.
      */
-    public ClienteDTO createCity(ClienteDTO nuevoCliente) throws LogicaRestauranteException 
+    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException 
     {
     	logger.info("Recibiendo solicitud de agregar cliente: " + nuevoCliente);
     	
     	// Si el nuevo cliente ya tiene identificador
     	if ( nuevoCliente.darId() != null ) 
         {
-	    	// busca la ciudad con el id suministrado
+	    	// Busca la ciudad con el id suministrado
 	        for (ClienteDTO cliente : clientes) 
                 {
-	        	// si existe una ciudad con ese id
+	        	// Si existe una ciudad con ese id se genera una excepcion de logica.
 	            if (Objects.equals(cliente.darId(), nuevoCliente.darId()))
                     {
 	            	logger.severe("Ya existe una ciudad con ese id");
 	                throw new LogicaRestauranteException("Ya existe una ciudad con ese id");
 	            }
 	        }
-	        
-	// El nuevo cliente no tiene identificador 
     	} 
+        // El nuevo cliente no tiene identificador. 
         else 
         {
-    		// genera un id para la ciudad
+    		// Se genera un ID para el cliente.
     		logger.info("Generando id paa la nueva ciudad");
     		Long newId = 1L;
 	        for (ClienteDTO cliente : clientes) 
@@ -108,11 +131,20 @@ public class MockClientes
 	        nuevoCliente.asignarId(newId);
     	}
     	
-        // agrega la ciudad
+        // AAgrega el cliente.
     	logger.info("Agregando Cliente: " + nuevoCliente);
         clientes.add(nuevoCliente);
         return nuevoCliente;
     }
 
+   public ClienteDTO actualizarCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+   {
+       //TODO
+       return null;
+   }
    
+      public void eliminarCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+   {
+       //TODO
+   }
 }

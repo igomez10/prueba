@@ -46,6 +46,6 @@ public class RecursoCliente
     @POST
     public ClienteDTO createCity(ClienteDTO cliente) throws LogicaRestauranteException 
     {
-        return mockClientes.createCity(cliente);
+        return mockClientes.crearCliente(cliente);
     }
 }

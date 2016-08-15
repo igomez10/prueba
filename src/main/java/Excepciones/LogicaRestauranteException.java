@@ -1,7 +1,7 @@
 package Excepciones;
 
 /**
- * Representa las excepciones de la lógica de CityLogic 
+ * Excepcion en la logica del restaurante
  */
 public class LogicaRestauranteException extends Exception 
 {
