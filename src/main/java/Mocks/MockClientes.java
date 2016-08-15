@@ -57,16 +57,19 @@ public class MockClientes
     */    
     public List<ClienteDTO> darClientes() throws LogicaRestauranteException 
     {
+        logger.info("Recibiendo solicitud de dar todos los clientes.");
+        
     	if (clientes == null) 
         {
     		logger.severe("Error interno: lista de clientes no existe.");
     		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
     	}
+        
     	logger.info("Retornando todas las ciudades");
     	return clientes;
     }
     
-        /**
+    /**
     * Obtiene el cliente con el id que entra por parametro. 
     * @return ClienteDTO Cliente buscado.
     * @throws LogicaRestauranteException Cuando no existe un cliente con el id buscado.  
@@ -96,36 +99,75 @@ public class MockClientes
      * @param nuevoCliente Cliente a agregar.
      * @return Cliente agregado.
      */
-    public ClienteDTO crearCliente(String pNombre, String pApellidos, String pDireccion)
+    public ClienteDTO crearCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
     {
-    	logger.info("Recibiendo solicitud de agregar cliente");
+    	logger.info("Recibiendo solicitud de agregar cliente.");
     	
-    	// Se genera un ID para el cliente.
-    	logger.info("Generando id paa la nueva ciudad");
-    	Long newId = 1L;
+    	// Se busca que no exista un cliente con ese id.
 	for (ClienteDTO cliente : clientes) 
         {
-            if(newId <= cliente.darId())
+            if(cliente.darId().equals(pId))
             {
-                newId =  cliente.darId() + 1;
+                logger.severe("Error de uso: Se intento crear un cliente con un id "+pId+" que ya existia.");
+                throw new LogicaRestauranteException("Error de uso: Se intento crear un cliente con un id "+pId+" que ya existia.");
             }
 	}
-	        ClienteDTO nuevoCliente = new ClienteDTO(newId, pNombre, pApellidos, pDireccion);
+	ClienteDTO nuevoCliente = new ClienteDTO(pId, pNombre, pApellidos, pDireccion);
     	
-        // AAgrega el cliente.
+        // Se Agrega el cliente.
     	logger.info("Agregando Cliente: " + nuevoCliente);
         clientes.add(nuevoCliente);
         return nuevoCliente;
     }
 
    public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
-   {
-       //TODO
-       return null;
+   {   
+       // Se busca el cliente a actualizar
+        for (ClienteDTO cliente : clientes) 
+        {
+            if(cliente.darId().equals(pId))
+            {
+                if(pNombre != null && !pNombre.equalsIgnoreCase(""))
+                {
+                    cliente.asignarNombre(pNombre);
+                }
+                if(pApellidos !=null && !pApellidos.equalsIgnoreCase(""))
+                {
+                    cliente.asignarApellidos(pApellidos);
+                }
+                if(pDireccion != null && !pDireccion.equalsIgnoreCase(""))
+                {
+                    cliente.asignarDireccion(pDireccion);
+                }
+                return cliente;
+            }
+	}
+       
+       // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
+        logger.severe("Error de uso: Se pidio actualizar un cliente que no existe.");
+        throw new LogicaRestauranteException("Error de uso: Se pidio actualizar un cliente que no existe.");
    }
    
       public void eliminarCliente(Long pId) throws LogicaRestauranteException
    {
-       //TODO
+       boolean eliminado = false;
+       
+        // Se busca el cliente a eliminar
+        for (int i = 0; i< clientes.size() && !eliminado; i++) 
+        {
+            ClienteDTO cliente = clientes.get(i);
+            if(cliente.darId().equals(pId))
+            {
+                clientes.remove(i);
+                eliminado = true;
+            }
+        }
+       
+        if(!eliminado)
+        {
+        // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
+        logger.severe("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
+        throw new LogicaRestauranteException("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
+        }
    }
 }
