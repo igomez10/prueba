@@ -1,4 +1,4 @@
-package co.edu.uniandes.rest.cities.exceptions;
+package Excepciones;
 
 /**
  * Representa las excepciones de la lógica de CityLogic 

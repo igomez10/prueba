@@ -3,11 +3,11 @@
  * Clase que representa el recurso "/cities"
  * Implementa varios métodos para manipular las ciudades
  */
-package co.edu.uniandes.rest.cities.resources;
+package Recursos;
 
-import co.edu.uniandes.rest.cities.dtos.CityDTO;
-import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
-import co.edu.uniandes.rest.cities.mocks.CityLogicMock;
+import DTOs.CityDTO;
+import Excepciones.CityLogicException;
+import Mocks.CityLogicMock;
 
 import java.util.List;
 

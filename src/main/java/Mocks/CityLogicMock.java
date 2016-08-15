@@ -1,4 +1,4 @@
-package co.edu.uniandes.rest.cities.mocks;
+package Mocks;
 
 /**
  * Mock del recurso Ciudades (Mock del servicio REST)
@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 
 
 
-import co.edu.uniandes.rest.cities.dtos.CityDTO;
-import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
+import DTOs.CityDTO;
+import Excepciones.CityLogicException;
 
 /*
  * CityLogicMock

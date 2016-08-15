@@ -1,10 +1,10 @@
-package co.edu.uniandes.rest.cities.mappers;
+package Mappers;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
+import Excepciones.CityLogicException;
 
 /**
  * Convertidor de Excepciones CityLogicException a mensajes REST.
