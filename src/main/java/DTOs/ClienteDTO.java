@@ -11,7 +11,7 @@ package DTOs;
  */
 public class ClienteDTO 
 {
-    private int id;
+    private Long id;
     
     private String nombre;
     
@@ -19,7 +19,7 @@ public class ClienteDTO
     
     private String direccion;
     
-    public ClienteDTO(int pId, String pNombre, String pApellidos, String pDireccion)
+    public ClienteDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
     {
         id = pId;
         nombre = pNombre;
@@ -27,7 +27,27 @@ public class ClienteDTO
         direccion = pDireccion;
     }
     
-    public int darId()
+    public void asignarId(Long pId)
+    {
+        id = pId;
+    }
+    
+    public void asignarNombre(String pNombre)
+    {
+        nombre = pNombre;
+    }
+    
+    public void asignarApellidos(String pApellidos)
+    {
+        apellidos = pApellidos;
+    }
+    
+    public void asignarDireccion(String pDireccion)
+    {
+        direccion = pDireccion;
+    }
+    
+    public Long darId()
     {
         return id;
     }
@@ -45,5 +65,14 @@ public class ClienteDTO
     public String darDireccion()
     {
         return direccion;
+    }
+    
+    public String toString() 
+    {
+    	return "{ id : " + id +",\t"
+                + "nombre\" : \" "+ nombre +" \",\t"
+                + "apellidos\" : \""+apellidos+"\",\t"
+                + "direccion\" : \""+direccion+"\"\t"
+                + "}" ;  
     }
 }
