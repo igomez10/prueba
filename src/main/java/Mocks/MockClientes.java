@@ -94,42 +94,23 @@ public class MockClientes
     /**
      * Agrega un cliente al sistema.
      * @param nuevoCliente Cliente a agregar.
-     * @throws LogicaRestauranteException Cuando ya existe un Cliente con el id suministrado.
      * @return Cliente agregado.
      */
-    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException 
+    public ClienteDTO crearCliente(String pNombre, String pApellidos, String pDireccion)
     {
-    	logger.info("Recibiendo solicitud de agregar cliente: " + nuevoCliente);
+    	logger.info("Recibiendo solicitud de agregar cliente");
     	
-    	// Si el nuevo cliente ya tiene identificador
-    	if ( nuevoCliente.darId() != null ) 
+    	// Se genera un ID para el cliente.
+    	logger.info("Generando id paa la nueva ciudad");
+    	Long newId = 1L;
+	for (ClienteDTO cliente : clientes) 
         {
-	    	// Busca la ciudad con el id suministrado
-	        for (ClienteDTO cliente : clientes) 
-                {
-	        	// Si existe una ciudad con ese id se genera una excepcion de logica.
-	            if (Objects.equals(cliente.darId(), nuevoCliente.darId()))
-                    {
-	            	logger.severe("Ya existe una ciudad con ese id");
-	                throw new LogicaRestauranteException("Ya existe una ciudad con ese id");
-	            }
-	        }
-    	} 
-        // El nuevo cliente no tiene identificador. 
-        else 
-        {
-    		// Se genera un ID para el cliente.
-    		logger.info("Generando id paa la nueva ciudad");
-    		Long newId = 1L;
-	        for (ClienteDTO cliente : clientes) 
-                {
-	            if (newId <= cliente.darId())
-                    {
-	                newId =  cliente.darId() + 1;
-	            }
-	        }
-	        nuevoCliente.asignarId(newId);
-    	}
+            if(newId <= cliente.darId())
+            {
+                newId =  cliente.darId() + 1;
+            }
+	}
+	        ClienteDTO nuevoCliente = new ClienteDTO(newId, pNombre, pApellidos, pDireccion);
     	
         // AAgrega el cliente.
     	logger.info("Agregando Cliente: " + nuevoCliente);
@@ -137,13 +118,13 @@ public class MockClientes
         return nuevoCliente;
     }
 
-   public ClienteDTO actualizarCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+   public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
    {
        //TODO
        return null;
    }
    
-      public void eliminarCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+      public void eliminarCliente(Long pId) throws LogicaRestauranteException
    {
        //TODO
    }
