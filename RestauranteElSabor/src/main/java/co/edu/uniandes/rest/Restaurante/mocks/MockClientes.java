@@ -42,7 +42,7 @@ public class MockClientes
     	
     	// Muestra información 
     	logger.info("Inicializada la lista de clientes");
-    	logger.info("Clientes:\t" + clientes );
+    	logger.info("Clientes:\n" + clientes );
     }    
     
     /**
@@ -117,6 +117,8 @@ public class MockClientes
 
   public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
    {   
+       logger.info("Recibiendo solicitud de actualizar cliente."); 
+       
        // Se busca el cliente a actualizar
         for (ClienteDTO cliente : clientes) 
         {

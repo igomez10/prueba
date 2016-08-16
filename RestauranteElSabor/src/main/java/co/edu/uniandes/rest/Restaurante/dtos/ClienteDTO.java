@@ -71,11 +71,16 @@ public class ClienteDTO
         return direccion;
     }
     
+        
+    /**
+     * Representacion JSON de un cliente
+     * @return La representacion JSON de un DTO cliente.
+     */
     @Override
     public String toString() 
     {
-    	return "{ id : " + darId() +", nombre : \""+ darNombre() +"\", apellidos : \""+darApellidos()+"\", "
-                + "direccion : \""+darDireccion()+"\""
-                + " }" ;  
+    	return "{ id : " + id +", nombre : \""+ nombre +"\", apellidos : \""+apellidos+"\", "
+                + "direccion : \""+direccion+"\" }" ;  
     }
+    
 }
