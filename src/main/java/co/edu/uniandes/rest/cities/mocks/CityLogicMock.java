@@ -104,6 +104,11 @@ public class CityLogicMock {
         cities.add(newCity);
         return newCity;
     }
+    
+    
+    public CityDTO updatecity(CityDTO updatedCity) throws CityLogicException {
+        return null;
+    }
 
    
 }

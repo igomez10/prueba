@@ -13,7 +13,9 @@ import java.util.List;
 
 
 import javax.ws.rs.GET;
+import static javax.ws.rs.HttpMethod.PUT;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
@@ -56,6 +58,11 @@ public class CityResource {
     public CityDTO createCity(CityDTO city) throws CityLogicException {
         return cityLogic.createCity(city);
     }
-
+    
+    @PUT
+    
+    public CityDTO updateCity(CityDTO city) throws CityLogicException {
+        return cityLogic.updatecity(city);
+    }
   
 }
