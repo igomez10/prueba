@@ -94,47 +94,52 @@ public class MockClientes
      * @param nuevoCliente Cliente a agregar.
      * @return Cliente agregado.
      */
-    public ClienteDTO crearCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
+    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
     {
     	logger.info("Recibiendo solicitud de agregar cliente.");
-    	
+        Long idClienteAAgregar = nuevoCliente.darId();
+        
     	// Se busca que no exista un cliente con ese id.
 	for (ClienteDTO cliente : clientes) 
         {
-            if(cliente.darId().equals(pId))
+            if(cliente.darId().equals(idClienteAAgregar))
             {
-                logger.severe("Error de uso: Se intento crear un cliente con un id "+pId+" que ya existia.");
-                throw new LogicaRestauranteException("Error de uso: Se intento crear un cliente con un id "+pId+" que ya existia.");
+                logger.severe("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
+                throw new LogicaRestauranteException("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
             }
 	}
-	ClienteDTO nuevoCliente = new ClienteDTO(pId, pNombre, pApellidos, pDireccion);
-    	
+	
         // Se Agrega el cliente.
     	logger.info("Agregando Cliente: " + nuevoCliente);
         clientes.add(nuevoCliente);
         return nuevoCliente;
     }
 
-  public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
+  public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException
    {   
        logger.info("Recibiendo solicitud de actualizar cliente."); 
+       Long id = clienteActualizado.darId();
        
        // Se busca el cliente a actualizar
         for (ClienteDTO cliente : clientes) 
         {
-            if(cliente.darId().equals(pId))
+            if(cliente.darId().equals(id))
             {
-                if(pNombre != null && !pNombre.equalsIgnoreCase(""))
+                String nombre = clienteActualizado.darNombre();
+                String apellidos =clienteActualizado.darApellidos();
+                String direccion = clienteActualizado.darDireccion();
+                
+                if(nombre != null && !nombre.equalsIgnoreCase(""))
                 {
-                    cliente.asignarNombre(pNombre);
+                    cliente.asignarNombre(nombre);
                 }
-                if(pApellidos !=null && !pApellidos.equalsIgnoreCase(""))
+                if(apellidos !=null && !apellidos.equalsIgnoreCase(""))
                 {
-                    cliente.asignarApellidos(pApellidos);
+                    cliente.asignarApellidos(apellidos);
                 }
-                if(pDireccion != null && !pDireccion.equalsIgnoreCase(""))
+                if(direccion != null && !direccion.equalsIgnoreCase(""))
                 {
-                    cliente.asignarDireccion(pDireccion);
+                    cliente.asignarDireccion(direccion);
                 }
                 return cliente;
             }

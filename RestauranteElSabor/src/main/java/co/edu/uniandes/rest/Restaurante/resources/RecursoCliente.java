@@ -61,27 +61,22 @@ public class RecursoCliente
      * @return ClienteDTO cliente creado.
      * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
      */
- //   @POST
- //   public ClienteDTO crearCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
- //   {
- //       return mockClientes.crearCliente(pId, pNombre, pApellidos, pDireccion);
- //   }
+    @POST
+    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+    {
+        return mockClientes.crearCliente(nuevoCliente);
+    }
     
     /**
      *
-     * @param cliente
-     * @param pId Identificacion del cliente a actualizar.
-     * @param pNombre Nombre del cliente a actualizar.
-     * @param pApellidos Apellidos del cliente a actualizar.
-     * @param pDireccion Direccion del cliente a actualizar.
-     * @return ClienteDTO Cliente actualizado.
+     * @param ClienteDTO Cliente a actualizar.
      * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
      */
-//    @PUT
-//    public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException 
-//    {
-//        return mockClientes.actualizarCliente(pId, pNombre, pApellidos, pDireccion);
-//    }
+    @PUT
+    public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException 
+    {
+        return mockClientes.actualizarCliente(clienteActualizado);
+    }
     
     /**
      * Elimina el cliente con el identificador indicado
