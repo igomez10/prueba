@@ -115,33 +115,33 @@ public class MockClientes
         return nuevoCliente;
     }
 
-//  public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
-//   {   
-//       // Se busca el cliente a actualizar
-//        for (ClienteDTO cliente : clientes) 
-//        {
-//            if(cliente.darId().equals(pId))
-//            {
-//                if(pNombre != null && !pNombre.equalsIgnoreCase(""))
-//                {
-//                    cliente.asignarNombre(pNombre);
-//                }
-//                if(pApellidos !=null && !pApellidos.equalsIgnoreCase(""))
-//                {
-//                    cliente.asignarApellidos(pApellidos);
-//                }
-//                if(pDireccion != null && !pDireccion.equalsIgnoreCase(""))
-//                {
-//                    cliente.asignarDireccion(pDireccion);
-//                }
-//                return cliente;
-//            }
-//	}
-//       
-//      // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
-//        logger.severe("Error de uso: Se pidio actualizar un cliente que no existe.");
-//        throw new LogicaRestauranteException("Error de uso: Se pidio actualizar un cliente que no existe.");
-//   }
+  public ClienteDTO actualizarCliente(Long pId, String pNombre, String pApellidos, String pDireccion) throws LogicaRestauranteException
+   {   
+       // Se busca el cliente a actualizar
+        for (ClienteDTO cliente : clientes) 
+        {
+            if(cliente.darId().equals(pId))
+            {
+                if(pNombre != null && !pNombre.equalsIgnoreCase(""))
+                {
+                    cliente.asignarNombre(pNombre);
+                }
+                if(pApellidos !=null && !pApellidos.equalsIgnoreCase(""))
+                {
+                    cliente.asignarApellidos(pApellidos);
+                }
+                if(pDireccion != null && !pDireccion.equalsIgnoreCase(""))
+                {
+                    cliente.asignarDireccion(pDireccion);
+                }
+                return cliente;
+            }
+	}
+       
+      // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
+        logger.severe("Error de uso: Se pidio actualizar un cliente que no existe.");
+        throw new LogicaRestauranteException("Error de uso: Se pidio actualizar un cliente que no existe.");
+   }
    
       public void eliminarCliente(Long pId) throws LogicaRestauranteException
    {

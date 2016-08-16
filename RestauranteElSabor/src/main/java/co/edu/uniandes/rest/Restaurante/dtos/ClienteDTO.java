@@ -25,10 +25,10 @@ public class ClienteDTO
     public ClienteDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
     {
         super();
-        this.id = pId;
-        this.nombre = pNombre;
-        this.apellidos = pApellidos;
-        this.direccion = pDireccion;
+        id = pId;
+        nombre = pNombre;
+        apellidos = pApellidos;
+        direccion = pDireccion;
     }
     
     public void asignarId(Long pId)
