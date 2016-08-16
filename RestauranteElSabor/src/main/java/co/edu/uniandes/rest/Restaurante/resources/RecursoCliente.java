@@ -42,7 +42,7 @@ public class RecursoCliente
     
      /**
      * Obtiene el cliente con el identificador buscado.
-     * @PathParam id Identificador del cliente buscado
+     * @param pId Identificador del cliente buscado
      * @return ClienteDTO Cliente buscado.
      * @throws LogicaRestauranteException Si no existe un cliente con el identificador dado.
      */
@@ -82,7 +82,7 @@ public class RecursoCliente
     
     /**
      * Elimina el cliente con el identificador indicado
-     * @pathParam id Identificador del cliente que se quiere eliminar.
+     * @param pId Identificador del cliente que se quiere eliminar.
      * @throws LogicaRestauranteException Si no existe ningun cliente con el id dado.
      */
     @DELETE

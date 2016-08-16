@@ -25,45 +25,51 @@ public class ClienteDTO
     public ClienteDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
     {
         super();
-        id = pId;
-        nombre = pNombre;
-        apellidos = pApellidos;
-        direccion = pDireccion;
+        this.id = pId;
+        this.nombre = pNombre;
+        this.apellidos = pApellidos;
+        this.direccion = pDireccion;
     }
 
-    public Long getId() {
+    public Long getId() 
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) 
+    {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
+    public String getApellidos() 
+    {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
+    public void setApellidos(String apellidos) 
+    {
         this.apellidos = apellidos;
     }
 
-    public String getDireccion() {
+    public String getDireccion() 
+    {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(String direccion) 
+    {
         this.direccion = direccion;
     }
-    
-    
         
     /**
      * Representacion JSON de un cliente

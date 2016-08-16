@@ -71,6 +71,8 @@ public class MockClientes
     */    
     public ClienteDTO darCliente(Long pId) throws LogicaRestauranteException 
     {
+        logger.info("Recibiendo solicitud de dar el cliente con id "+pId+".");
+        
     	if (clientes == null) 
         {
     		logger.severe("Error interno: lista de clientes no existe.");
