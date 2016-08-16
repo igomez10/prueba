@@ -9,6 +9,7 @@ import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
 import co.edu.uniandes.rest.cities.mocks.MockClientes;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -23,6 +24,7 @@ import javax.ws.rs.Produces;
  */
 @Path("clientes")
 @Produces("application/json")
+@Consumes("application/json")
 public class RecursoCliente 
 {
     MockClientes mockClientes = new MockClientes();
