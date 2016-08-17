@@ -171,7 +171,7 @@ public class MockPlato
         if(!eliminado)
         {
         // Si se llega hasta aca es porque no se encontro plato con el id buscado.
-        logger.severe("Error de uso: Se pidio eliminar un platp con id "+pId+" que no existe.");
+        logger.severe("Error de uso: Se pidio eliminar un plato con id "+pId+" que no existe.");
         throw new LogicaRestauranteException("Error de uso: Se pidio eliminar un plato con id "+pId+" que no existe.");
         }
    }

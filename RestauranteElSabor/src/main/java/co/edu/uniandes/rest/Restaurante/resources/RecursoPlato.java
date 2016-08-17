@@ -5,9 +5,10 @@
  */
 package co.edu.uniandes.rest.Restaurante.resources;
 
-import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
+import co.edu.uniandes.rest.Restaurante.dtos.PlatoDTO;
+import co.edu.uniandes.rest.Restaurante.mocks.MockPlato;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
-import co.edu.uniandes.rest.cities.mocks.MockClientes;
+
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -20,37 +21,37 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author jdguz
+ * @author zlcastaneda10
  */
-@Path("clientes")
+@Path("platos")
 @Produces("application/json")
 @Consumes("application/json")
 public class RecursoPlato 
 {
-    MockClientes mockClientes = new MockClientes();
+    MockPlato mockPlato = new MockPlato();
     
     /**
-     * Obtiene una lista con todos los clientes.
-     * @return lista de clientes.
+     * Obtiene una lista con todos los platos.
+     * @return lista de platos.
      * @throws LogicaRestauranteException Si no existe una lista de clientes en el sistema.
      */
     @GET
-    public List<ClienteDTO> darClientes() throws LogicaRestauranteException 
+    public List<PlatoDTO> darPlatos() throws LogicaRestauranteException 
     {
-        return mockClientes.darClientes();
+        return mockPlato.darPlatos();
     }
     
      /**
      * Obtiene el cliente con el identificador buscado.
      * @param pId Identificador del cliente buscado
-     * @return ClienteDTO Cliente buscado.
+     * @return PlatoDTO Cliente buscado.
      * @throws LogicaRestauranteException Si no existe un cliente con el identificador dado.
      */
     @GET
     @Path("{id: \\d+}")
-    public ClienteDTO darCliente(@PathParam("id") Long pId) throws LogicaRestauranteException 
+    public PlatoDTO darPlato(@PathParam("id") Long pId) throws LogicaRestauranteException 
     {
-        return mockClientes.darCliente(pId);
+        return mockPlato.darPlato(pId);
     }
     
     
@@ -60,28 +61,28 @@ public class RecursoPlato
      * @param pNombre Nombre del cliente a crear.
      * @param pApellidos Apellidos del cliente a crear.
      * @param pDireccion Direccion del cliente a crear.
-     * @return ClienteDTO cliente creado.
+     * @return PlatoDTO cliente creado.
      * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
      */
     @POST
-    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+    public PlatoDTO crearPlato(PlatoDTO nuevoPlato) throws LogicaRestauranteException
     {
-        return mockClientes.crearCliente(nuevoCliente);
+        return mockPlato.crearPlato(nuevoPlato);
     }
     
     /**
      *
-     * @param ClienteDTO Cliente a actualizar.
+     * @param PlatoDTO Cliente a actualizar.
      * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
      */
     @PUT
-    public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException 
+    public PlatoDTO actualizarCliente(PlatoDTO platoActualizado) throws LogicaRestauranteException 
     {
-        return mockClientes.actualizarCliente(clienteActualizado);
+        return mockPlato.actualizarPlato(platoActualizado);
     }
     
     /**
-     * Elimina el cliente con el identificador indicado
+     * Elimina el plato con el identificador indicado
      * @param pId Identificador del cliente que se quiere eliminar.
      * @throws LogicaRestauranteException Si no existe ningun cliente con el id dado.
      */
@@ -89,6 +90,6 @@ public class RecursoPlato
     @Path("{id: \\d+}")
     public void eliminarCliente(@PathParam("id") Long pId) throws LogicaRestauranteException 
     {
-        mockClientes.eliminarCliente(pId);
+        mockPlato.eliminarPlato(pId);
     }
 }
