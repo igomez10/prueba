@@ -7,7 +7,7 @@ package co.edu.uniandes.rest.Restaurante.dtos;
 
 /**
  *
- * @author jdguz
+ * @author zl.castaneda
  */
 public class PlatoDTO 
 {
