@@ -1,4 +1,4 @@
-package co.edu.uniandes.rest.cities.mocks;
+package co.edu.uniandes.rest.Restaurante.mocks;
 
 import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * Mock del recurso Ciudades (Mock del servicio REST)
  */
 
-public class MockClientes 
+public class MockSucursales
 {	
     // Objeto para presentar logs de las operaciones
     private final static Logger logger = Logger.getLogger(MockClientes.class.getName());
@@ -26,7 +26,7 @@ public class MockClientes
     /**
      * Constructor. Crea los datos de ejemplo.
      */
-    public MockClientes() 
+    public MockSucursales() 
     {
     	if (clientes == null) 
         {

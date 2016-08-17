@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.cities.resources;
+package co.edu.uniandes.rest.Restaurante.resources;
 
+import co.edu.uniandes.rest.Restaurante.mocks.MockSucursales;
 import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
-import co.edu.uniandes.rest.cities.mocks.MockClientes;
+
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -25,9 +26,9 @@ import javax.ws.rs.Produces;
 @Path("clientes")
 @Produces("application/json")
 @Consumes("application/json")
-public class RecursoCliente 
+public class RecursoSucursal 
 {
-    MockClientes mockClientes = new MockClientes();
+    MockSucursales mockClientes = new MockSucursales();
     
     /**
      * Obtiene una lista con todos los clientes.

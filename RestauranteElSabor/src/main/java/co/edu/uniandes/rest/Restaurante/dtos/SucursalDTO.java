@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.cities.dtos;
+package co.edu.uniandes.rest.Restaurante.dtos;
 
 /**
  *
  * @author jdguz
  */
-public class ClienteDTO 
+public class SucursalDTO 
 {
     private Long id;
     
@@ -19,10 +19,10 @@ public class ClienteDTO
     
     private String direccion;
     
-    public ClienteDTO()
+    public SucursalDTO()
     {   }
     
-    public ClienteDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
+    public SucursalDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
     {
         super();
         this.id = pId;

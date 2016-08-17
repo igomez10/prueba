@@ -1,4 +1,4 @@
-package co.edu.uniandes.rest.cities.mocks;
+package co.edu.uniandes.rest.Restaurante.mocks;
 
 import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
