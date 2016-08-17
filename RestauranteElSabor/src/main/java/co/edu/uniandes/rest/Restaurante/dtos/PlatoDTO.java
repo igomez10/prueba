@@ -68,9 +68,9 @@ public class PlatoDTO
         return descripcion;
     }
 
-    public void setDireccion(String direccion) 
+    public void setDireccion(String desc) 
     {
-        this.descripcion = descripcion;
+        this.descripcion = desc;
     }
         
     /**
