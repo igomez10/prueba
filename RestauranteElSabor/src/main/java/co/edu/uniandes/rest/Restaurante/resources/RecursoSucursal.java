@@ -5,10 +5,10 @@
  */
 package co.edu.uniandes.rest.Restaurante.resources;
 
-import co.edu.uniandes.rest.Restaurante.mocks.MockSucursales;
-import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
+import co.edu.uniandes.rest.Restaurante.dtos.SucursalDTO;
+import co.edu.uniandes.rest.cities.dtos.SucursalDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
-
+import co.edu.uniandes.rest.Restaurante.mocks.MockSucursales;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -21,75 +21,75 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author jdguz
+ * @author af.pinzon10
  */
-@Path("clientes")
+@Path("sucursales")
 @Produces("application/json")
 @Consumes("application/json")
 public class RecursoSucursal 
 {
-    MockSucursales mockClientes = new MockSucursales();
+    MockSucursales mockSucursales = new MockSucursales();
     
     /**
-     * Obtiene una lista con todos los clientes.
-     * @return lista de clientes.
-     * @throws LogicaRestauranteException Si no existe una lista de clientes en el sistema.
+     * Obtiene una lista con tados las sucursales.
+     * @return lista de sucursales.
+     * @throws LogicaRestauranteException Si no existe una lista de sucursales en el sistema.
      */
     @GET
-    public List<ClienteDTO> darClientes() throws LogicaRestauranteException 
+    public List<SucursalDTO> darSucursales() throws LogicaRestauranteException 
     {
-        return mockClientes.darClientes();
+        return mockSucursales.darSucursales();
     }
     
      /**
-     * Obtiene el cliente con el identificador buscado.
-     * @param pId Identificador del cliente buscado
-     * @return ClienteDTO Cliente buscado.
-     * @throws LogicaRestauranteException Si no existe un cliente con el identificador dado.
+     * Obtiene la sucursal con el identificador buscado.
+     * @param pId Identificador de la sucursal buscada
+     * @return SucursalDTO Sucursal buscada.
+     * @throws LogicaRestauranteException Si no existe una sucursal con el identificador dado.
      */
     @GET
     @Path("{id: \\d+}")
-    public ClienteDTO darCliente(@PathParam("id") Long pId) throws LogicaRestauranteException 
+    public SucursalDTO darSucursal(@PathParam("id") Long pId) throws LogicaRestauranteException 
     {
-        return mockClientes.darCliente(pId);
+        return mockSucursales.darSucursal(pId);
     }
     
     
      /**
-     * Crea una nueva instancia de Cliente.
-     * @param pId Identificacion del cliente a crear.
-     * @param pNombre Nombre del cliente a crear.
-     * @param pApellidos Apellidos del cliente a crear.
-     * @param pDireccion Direccion del cliente a crear.
-     * @return ClienteDTO cliente creado.
-     * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
+     * Crea una nueva instancia de Sucursal.
+     * @param pId Identificacion de la sucursal a crear.
+     * @param pCiudad Nombre de la sucursal a crear.
+     * @param pDireccion Direccion del sucursal a crear.
+     * @param pMesas Numero de mesas de la sucursal a crear
+     * @return SucursalDTO sucursal creada.
+     * @throws LogicaRestauranteException Si ya existe un sucursal con ese id.
      */
     @POST
-    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+    public SucursalDTO crearSucursal(SucursalDTO nuevaSucursal) throws LogicaRestauranteException
     {
-        return mockClientes.crearCliente(nuevoCliente);
+        return mockSucursales.crearSucursal(nuevaSucursal);
     }
     
     /**
      *
-     * @param ClienteDTO Cliente a actualizar.
-     * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
+     * @param SucursalDTO Sucursal a actualizar.
+     * @throws LogicaRestauranteException Si no existe una sucursal con el id dado.
      */
     @PUT
-    public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException 
+    public SucursalDTO actualizarSucursal(SucursalDTO sucursalActualizada) throws LogicaRestauranteException 
     {
-        return mockClientes.actualizarCliente(clienteActualizado);
+        return mockSucursales.actualizarSucursal(sucursalActualizada);
     }
     
     /**
-     * Elimina el cliente con el identificador indicado
-     * @param pId Identificador del cliente que se quiere eliminar.
-     * @throws LogicaRestauranteException Si no existe ningun cliente con el id dado.
+     * Elimina la sucursal con el identificador indicado
+     * @param pId Identificador de la sucursal que se quiere eliminar.
+     * @throws LogicaRestauranteException Si no existe ninguna sucursal con el id dado.
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void eliminarCliente(@PathParam("id") Long pId) throws LogicaRestauranteException 
+    public void eliminarSucursal(@PathParam("id") Long pId) throws LogicaRestauranteException 
     {
-        mockClientes.eliminarCliente(pId);
+        mockSucursales.eliminarSucursal(pId);
     }
 }

@@ -1,6 +1,6 @@
 package co.edu.uniandes.rest.Restaurante.mocks;
 
-import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
+import co.edu.uniandes.rest.Restaurante.dtos.SucursalDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
 
 import java.util.ArrayList;
@@ -11,16 +11,16 @@ import java.util.logging.Logger;
 
 /*
  * CityLogicMock
- * Mock del recurso Ciudades (Mock del servicio REST)
+ * Mock del recurso Sucursales (Mock del servicio REST)
  */
 
-public class MockSucursales
+public class MockSucursales 
 {	
     // Objeto para presentar logs de las operaciones
-    private final static Logger logger = Logger.getLogger(MockClientes.class.getName());
+    private final static Logger logger = Logger.getLogger(MockSucursales.class.getName());
 	
-    // Arreglo de clientes.
-    private static ArrayList<ClienteDTO> clientes;
+    // Arreglo de sucursales.
+    private static ArrayList<SucursalDTO> sucursales;
 
     
     /**
@@ -28,150 +28,150 @@ public class MockSucursales
      */
     public MockSucursales() 
     {
-    	if (clientes == null) 
+    	if (sucursales == null) 
         {
-            clientes = new ArrayList<ClienteDTO>();
-            clientes.add(new ClienteDTO(1L, "Nombre1", "Apellidos1", "Direccion1"));
-            clientes.add(new ClienteDTO(2L, "Nombre2", "Apellidos2", "Direccion2"));
-            clientes.add(new ClienteDTO(3L, "Nombre3", "Apellidos3", "Direccion3"));
-            clientes.add(new ClienteDTO(4L, "Nombre4", "Apellidos4", "Direccion4"));
+            sucursales = new ArrayList<SucursalDTO>();
+            sucursales.add(new SucursalDTO(1L, "Ciudad1", "Direccion1", 1));
+            sucursales.add(new SucursalDTO(2L, "Ciudad2", "Direccion2", 2));
+            sucursales.add(new SucursalDTO(3L, "Ciudad3", "Direccion3", 3));
+            sucursales.add(new SucursalDTO(4L, "Ciudad4", "Direccion4", 4));
         }
         
     	// Indica que se muestren todos los mensajes
     	logger.setLevel(Level.INFO);
     	
     	// Muestra información 
-    	logger.info("Inicializada la lista de clientes");
-    	logger.info("Clientes:\n" + clientes );
+    	logger.info("Inicializada la lista de sucursales");
+    	logger.info("Sucursales:\n" + sucursales );
     }    
     
     /**
-    * Obtiene el listado de personas. 
-    * @return Lista de ciudades
+    * Obtiene el listado de sucursales. 
+    * @return Lista de sucursales
     * @throws LogicaRestauranteException cuando no existe la lista en memoria  
     */    
-    public List<ClienteDTO> darClientes() throws LogicaRestauranteException 
+    public List<SucursalDTO> darSucursales() throws LogicaRestauranteException 
     {
-        logger.info("Recibiendo solicitud de dar todos los clientes.");
+        logger.info("Recibiendo solicitud de dar todas las sucursales.");
         
-    	if (clientes == null) 
+    	if (sucursales == null) 
         {
-    		logger.severe("Error interno: lista de clientes no existe.");
-    		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
+    		logger.severe("Error interno: lista de sucursales no existe.");
+    		throw new LogicaRestauranteException("Error interno: lista de sucursales no existe.");    		
     	}
         
-    	logger.info("Retornando todos los clientes.");
-    	return clientes;
+    	logger.info("Retornando todas las sucursales.");
+    	return sucursales;
     }
     
     /**
-    * Obtiene el cliente con el id que entra por parametro. 
-    * @return ClienteDTO Cliente buscado.
-    * @throws LogicaRestauranteException Cuando no existe un cliente con el id buscado.  
+    * Obtiene la sucursal con el id que entra por parametro. 
+    * @return SucursalDTO Sucursal buscado.
+    * @throws LogicaRestauranteException Cuando no existe una sucursal con el id buscado.  
     */    
-    public ClienteDTO darCliente(Long pId) throws LogicaRestauranteException 
+    public SucursalDTO darSucursal(Long pId) throws LogicaRestauranteException 
     {
-        logger.info("Recibiendo solicitud de dar el cliente con id "+pId+".");
+        logger.info("Recibiendo solicitud de dar la sucursal con id "+pId+".");
         
-    	if (clientes == null) 
+    	if (sucursales == null) 
         {
-    		logger.severe("Error interno: lista de clientes no existe.");
-    		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
+    		logger.severe("Error interno: lista de sucursales no existe.");
+    		throw new LogicaRestauranteException("Error interno: lista de sucursales no existe.");    		
     	}
         
-        for(ClienteDTO cliente:clientes)
+        for(SucursalDTO sucursal:sucursales)
         {
-            if(cliente.getId().equals(pId))
+            if(sucursal.getId().equals(pId))
             {
-                logger.info("Retornando el cliente con id "+pId);
-                return cliente;
+                logger.info("Retornando la sucursal con id "+pId);
+                return sucursal;
             }
         }
-    	logger.severe("Error de uso: Se pidio un cliente que no existe.");
-    	throw new LogicaRestauranteException("Error de uso: Se pidio un cliente que no existe.");
+    	logger.severe("Error de uso: Se pidio una sucursal que no existe.");
+    	throw new LogicaRestauranteException("Error de uso: Se pidio una sucursal que no existe.");
     }
 
     /**
-     * Agrega un cliente al sistema.
-     * @param nuevoCliente Cliente a agregar.
-     * @return Cliente agregado.
+     * Agrega una sucursal al sistema.
+     * @param nuevaSucursal Sucursal a agregar.
+     * @return Sucursal agregada.
      */
-    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+    public SucursalDTO crearSucursal(SucursalDTO nuevaSucursal) throws LogicaRestauranteException
     {
-    	logger.info("Recibiendo solicitud de agregar cliente.");
-        Long idClienteAAgregar = nuevoCliente.getId();
+    	logger.info("Recibiendo solicitud de agregar sucursal.");
+        Long idSucursalAAgregar = nuevaSucursal.getId();
         
-    	// Se busca que no exista un cliente con ese id.
-	for (ClienteDTO cliente : clientes) 
+    	// Se busca que no exista un sucursal con ese id.
+	for (SucursalDTO sucursal : sucursales) 
         {
-            if(cliente.getId().equals(idClienteAAgregar))
+            if(sucursal.getId().equals(idSucursalAAgregar))
             {
-                logger.severe("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
-                throw new LogicaRestauranteException("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
+                logger.severe("Error de uso: Se intento crear una sucursal con un id "+idSucursalAAgregar+" que ya existia.");
+                throw new LogicaRestauranteException("Error de uso: Se intento crear una sucursal con un id "+idSucursalAAgregar+" que ya existia.");
             }
 	}
 	
-        // Se Agrega el cliente.
-    	logger.info("Agregando Cliente: " + nuevoCliente);
-        clientes.add(nuevoCliente);
-        return nuevoCliente;
+        // Se Agrega el sucursal.
+    	logger.info("Agregando Sucursal: " + nuevaSucursal);
+        sucursales.add(nuevaSucursal);
+        return nuevaSucursal;
     }
 
-  public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException
+  public SucursalDTO actualizarSucursal(SucursalDTO sucursalActualizada) throws LogicaRestauranteException
    {   
-       logger.info("Recibiendo solicitud de actualizar cliente."); 
-       Long id = clienteActualizado.getId();
+       logger.info("Recibiendo solicitud de actualizar sucursal."); 
+       Long id = sucursalActualizada.getId();
        
-       // Se busca el cliente a actualizar
-        for (ClienteDTO cliente : clientes) 
+       // Se busca el sucursal a actualizar
+        for (SucursalDTO sucursal : sucursales) 
         {
-            if(cliente.getId().equals(id))
+            if(sucursal.getId().equals(id))
             {
-                String nombre = clienteActualizado.getNombre();
-                String apellidos =clienteActualizado.getApellidos();
-                String direccion = clienteActualizado.getDireccion();
+                String ciudad = sucursalActualizada.getCiudad();
+                String direccion = sucursalActualizada.getDireccion();
+                int mesas = sucursalActualizada.getMesas();
                 
-                if(nombre != null && !nombre.equalsIgnoreCase(""))
+                if(ciudad != null && !ciudad.equalsIgnoreCase(""))
                 {
-                    cliente.setNombre(nombre);
-                }
-                if(apellidos !=null && !apellidos.equalsIgnoreCase(""))
-                {
-                    cliente.setApellidos(apellidos);
+                    sucursal.setCiudad(ciudad);
                 }
                 if(direccion != null && !direccion.equalsIgnoreCase(""))
                 {
-                    cliente.setDireccion(direccion);
+                    sucursal.setDireccion(direccion);
                 }
-                return cliente;
+                if(mesas < 0)
+                {
+                    sucursal.setMesas(mesas);
+                }
+                return sucursal;
             }
 	}
        
-      // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
-        logger.severe("Error de uso: Se pidio actualizar un cliente que no existe.");
-        throw new LogicaRestauranteException("Error de uso: Se pidio actualizar un cliente que no existe.");
+      // Si se llega hasta aca es porque no se encontro sucursal con el id buscado.
+        logger.severe("Error de uso: Se pidio actualizar una sucursal que no existe.");
+        throw new LogicaRestauranteException("Error de uso: Se pidio actualizar una sucursal que no existe.");
    }
    
-      public void eliminarCliente(Long pId) throws LogicaRestauranteException
+      public void eliminarSucursal(Long pId) throws LogicaRestauranteException
    {
        boolean eliminado = false;
        
-        // Se busca el cliente a eliminar
-        for (int i = 0; i< clientes.size() && !eliminado; i++) 
+        // Se busca la sucursal a eliminar
+        for (int i = 0; i< sucursales.size() && !eliminado; i++) 
         {
-            ClienteDTO cliente = clientes.get(i);
-            if(cliente.getId().equals(pId))
+            SucursalDTO sucursal = sucursales.get(i);
+            if(sucursal.getId().equals(pId))
             {
-                clientes.remove(i);
+                sucursales.remove(i);
                 eliminado = true;
             }
         }
        
         if(!eliminado)
         {
-        // Si se llega hasta aca es porque no se encontro cliente con el id buscado.
-        logger.severe("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
-        throw new LogicaRestauranteException("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
+        // Si se llega hasta aca es porque no se encontro sucursal con el id buscado.
+        logger.severe("Error de uso: Se pidio eliminar una sucursal con id "+pId+" que no existe.");
+        throw new LogicaRestauranteException("Error de uso: Se pidio eliminar una sucursal con id "+pId+" que no existe.");
         }
    }
 }

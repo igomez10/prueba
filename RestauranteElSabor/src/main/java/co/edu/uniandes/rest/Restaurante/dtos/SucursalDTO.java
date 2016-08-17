@@ -7,28 +7,28 @@ package co.edu.uniandes.rest.Restaurante.dtos;
 
 /**
  *
- * @author jdguz
+ * @author af.pinzon10
  */
 public class SucursalDTO 
 {
     private Long id;
     
-    private String nombre;
-    
-    private String apellidos;
+    private String ciudad;
     
     private String direccion;
+    
+    private int mesas;
     
     public SucursalDTO()
     {   }
     
-    public SucursalDTO(Long pId, String pNombre, String pApellidos, String pDireccion)
+    public SucursalDTO(Long pId, String pCiudad, String pDireccion, int pMesas)
     {
         super();
         this.id = pId;
-        this.nombre = pNombre;
-        this.apellidos = pApellidos;
+        this.ciudad = pCiudad;
         this.direccion = pDireccion;
+        this.mesas = pMesas;
     }
 
     public Long getId() 
@@ -41,24 +41,14 @@ public class SucursalDTO
         this.id = id;
     }
 
-    public String getNombre() 
+    public String getCiudad()
     {
-        return nombre;
+        return ciudad;
     }
-
-    public void setNombre(String nombre) 
+    
+    public void setCiudad(String ciudad)
     {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() 
-    {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) 
-    {
-        this.apellidos = apellidos;
+        this.ciudad = ciudad;
     }
 
     public String getDireccion() 
@@ -70,16 +60,25 @@ public class SucursalDTO
     {
         this.direccion = direccion;
     }
+    
+    public int getMesas()
+    {
+        return mesas;
+    }
+    
+    public void setMesas(int mesas)
+    {
+        this.mesas = mesas;
+    }
         
     /**
      * Representacion JSON de un cliente
-     * @return La representacion JSON de un DTO cliente.
+     * @return La representacion JSON de un DTO Sucursal.
      */
     @Override
     public String toString() 
     {
-    	return "{ id : " + id +", nombre : \""+ nombre +"\", apellidos : \""+apellidos+"\", "
-                + "direccion : \""+direccion+"\" }" ;  
+    	return "{ id : " + id + ", ciudad : \""+ ciudad +"\", direccion : \""+direccion+"\", mesas : \""+mesas+"\" }" ;  
     }
     
 }
