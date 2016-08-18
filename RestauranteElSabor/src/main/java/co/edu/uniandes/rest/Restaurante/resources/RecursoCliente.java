@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.cities.resources;
+package co.edu.uniandes.rest.Restaurante.resources;
 
+import co.edu.uniandes.rest.Restaurante.mocks.MockClientes;
 import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
-import co.edu.uniandes.rest.cities.mocks.MockClientes;
+
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
