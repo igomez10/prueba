@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.rest.Restaurante.dtos;
 
+import java.util.Date;
+
 /**
  *
  * @author igomez10
@@ -23,7 +25,7 @@ public class MedioDePagoDTO
 
     private String tarjeta;
 
-    private Long numerosTarjeta;
+    private Integer numerosTarjeta;
 
     private Date fechaVencimiento;
 
@@ -36,7 +38,7 @@ public class MedioDePagoDTO
 
     //CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR-----------
 
-    public ClienteDTO(Integer pId, Boolean pEfectivo, String pTarjeta, Long pNumerosTarjeta, Date pFechaVencimiento, Integer pCodigoSeguridad, String pFranquicia )
+    public MedioDePagoDTO(Integer pId, Boolean pEfectivo, String pTarjeta, Integer pNumerosTarjeta, Date pFechaVencimiento, Integer pCodigoSeguridad, String pFranquicia )
     {
         super();
         this.id = pId;
@@ -50,7 +52,7 @@ public class MedioDePagoDTO
 
     //ASIGNAR ASIGNAR ASIGNAR ASIGNAR---------------------
 
-    public void setId(Long pId)
+    public void setId(Integer pId)
     {
         id = pId;
     }
@@ -62,7 +64,7 @@ public class MedioDePagoDTO
     {
       tarjeta=pTarjeta;
     }
-    public void setNumerosTarjeta(Long pNumerosTarjeta)
+    public void setNumerosTarjeta(Integer pNumerosTarjeta)
     {
       numerosTarjeta=pNumerosTarjeta;
     }
@@ -89,9 +91,9 @@ public class MedioDePagoDTO
       return efectivo;
     }
     public String getTarjeta(){
-      return tarjeta
+      return tarjeta;
     }
-    public Long getNumerosTarjeta(){
+    public Integer getNumerosTarjeta(){
       return numerosTarjeta;
     }
     public Date getFechaVencimiento(){
@@ -110,7 +112,7 @@ public class MedioDePagoDTO
     public String toString()
     {
     	return "{ id : " + getId() +", efectivo : \""+ getEfectivo() +"\", tarjeta : \""+getTarjeta()+"\", "
-                + ", numeros de Tarjeta : \""+getNumerosTarjeta()+"\""+", fecha de vencimiento : \""+ getFechaVencimiento()+", codigoSeguridad : \""+getCodigoSeguridad+", franquicia : \""+getFranquicia
+                + ", numeros de Tarjeta : \""+getNumerosTarjeta()+"\""+", fecha de vencimiento : \""+ getFechaVencimiento()+", codigoSeguridad : \""+getCodigoSeguridad()+", franquicia : \""+getFranquicia()
                 + " }" ;
     }
 }

@@ -1,9 +1,13 @@
 package co.edu.uniandes.rest.Restaurante.mocks;
 
 import co.edu.uniandes.rest.Restaurante.dtos.MedioDePagoDTO;
-import co.edu.uniandes.rest.Restaurante.exceptions.LogicaRestauranteException;
+import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -26,16 +30,16 @@ public class MockMedioDePago
     /**
      * Constructor. Crea los datos de ejemplo.
      */
-    public MockMedioDePago()
+    public MockMedioDePago() throws ParseException
     {
     	if (medios == null)
         {
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             medios = new ArrayList<MedioDePagoDTO>();
-            medios.add(new MedioDePagoDTO(1, false,"descripcion1",1234567890123456,df.parse("02/07/2018"),123,"visa");
-            medios.add(new MedioDePagoDTO(2, false,"descripcion2",2345678901234567,df.parse("07/11/2019"),234,"mastercard");
-            medios.add(new MedioDePagoDTO(3, false,"descripcion3",3456789012345678,df.parse("07/01/2020"),345,"diners");
-            medios.add(new MedioDePagoDTO(4, false,"descripcion4",4567890123456789,df.parse("01/01/2017"),456,"visa");
+            medios.add(new MedioDePagoDTO(1, false,"descripcion1", 1234567890 ,df.parse("02/07/2018"),123,"visa"));
+            medios.add(new MedioDePagoDTO(2, false,"descripcion2",234567890,df.parse("07/11/2019"),234,"mastercard"));
+            medios.add(new MedioDePagoDTO(3, false,"descripcion3",345678901,df.parse("07/01/2020"),345,"diners"));
+            medios.add(new MedioDePagoDTO(4, false,"descripcion4",456789012,df.parse("01/01/2017"),456,"visa"));
         }
 
     	// Indica que se muestren todos los mensajes
@@ -51,7 +55,7 @@ public class MockMedioDePago
     * @return Lista de ciudades
     * @throws LogicaRestauranteException cuando no existe la lista en memoria
     */
-    public List<MedioDePagoDTO> darMediosDePago() throws LogicaRestaurantException
+    public List<MedioDePagoDTO> darMediosDePago() throws LogicaRestauranteException
     {
         logger.info("Recibiendo solicitud de dar todos los mediosDePago.");
 
@@ -80,7 +84,7 @@ public class MockMedioDePago
     		throw new LogicaRestauranteException("Error interno: lista de medios no existe.");
     	}
 
-        for(ClienteDTO medio:medios)
+        for(MedioDePagoDTO medio:medios)
         {
             if(medio.getId().equals(pId))
             {
@@ -100,12 +104,12 @@ public class MockMedioDePago
     public MedioDePagoDTO crearMedioDePago(MedioDePagoDTO nuevoMedioDePago) throws LogicaRestauranteException
     {
     	logger.info("Recibiendo solicitud de agregar medio de pago.");
-        Long idMedioDePagoAAgregar = nuevoMedioDePago.getId();
+        Integer idMedioDePagoAAgregar = nuevoMedioDePago.getId();
 
     	// Se busca que no exista un medio de pago con ese id.
-	for (ClienteDTO medio : medios)
+	for (MedioDePagoDTO medio : medios)
         {
-            if(medio.getId().equals(idClienteAAgregar))
+            if(medio.getId().equals(idMedioDePagoAAgregar))
             {
                 logger.severe("Error de uso: Se intento crear un medio de pago con un id "+idMedioDePagoAAgregar+" que ya existia.");
                 throw new LogicaRestauranteException("Error de uso: Se intento crear un medio de pago con un id "+idMedioDePagoAAgregar+" que ya existia.");
@@ -121,7 +125,7 @@ public class MockMedioDePago
   public MedioDePagoDTO actualizarMedioDePago(MedioDePagoDTO medioDePagoActualizado) throws LogicaRestauranteException
    {
        logger.info("Recibiendo solicitud de actualizar medio de pago.");
-       Long id = medioDePagoActualizado.getId();
+       Integer id = medioDePagoActualizado.getId();
 
        // Se busca el medio de pago a actualizar
         for (MedioDePagoDTO medio : medios)
@@ -130,7 +134,7 @@ public class MockMedioDePago
             {
                 boolean efectivo=medioDePagoActualizado.getEfectivo();
                 String tarjeta = medioDePagoActualizado.getTarjeta();
-                Long numerosTarjeta=medioDePagoActualizado.getNumerosTarjeta();
+                Integer numerosTarjeta=medioDePagoActualizado.getNumerosTarjeta();
                 Date fechaVencimiento=medioDePagoActualizado.getFechaVencimiento();
                 Integer codigoSeguridad=medioDePagoActualizado.getCodigoSeguridad();
                 String franquicia= medioDePagoActualizado.getFranquicia();
