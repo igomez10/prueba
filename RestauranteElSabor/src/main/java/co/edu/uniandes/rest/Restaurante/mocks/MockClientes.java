@@ -154,6 +154,7 @@ public class MockClientes
    
       public void eliminarCliente(Long pId) throws LogicaRestauranteException
    {
+       logger.info("Recibiendo solicitud de eliminar el cliente con id: " + pId);
        boolean eliminado = false;
        
         // Se busca el cliente a eliminar
@@ -173,5 +174,6 @@ public class MockClientes
         logger.severe("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
         throw new LogicaRestauranteException("Error de uso: Se pidio eliminar un cliente con id "+pId+" que no existe.");
         }
+        logger.info("Eliminado satisfactoriamente.");
    }
 }
