@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.cities.resources;
+package co.edu.uniandes.rest.Restaurante.resources;
 
 import co.edu.uniandes.rest.Restaurante.dtos.MedioDePagoDTO;
-import co.edu.uniandes.rest.Restaurante.exceptions.LogicaRestauranteException;
+import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
 import co.edu.uniandes.rest.Restaurante.mocks.MockMedioDePago;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -27,7 +27,8 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 public class RecursoMedioDePago
 {
-    MockMedioDePago mockMedioDePago = new MockMedioDePago();
+        MockMedioDePago mockMedioDePago = new MockMedioDePago();
+
 
     /**
      * Obtiene una lista con todos los medios de pago.
@@ -60,7 +61,7 @@ public class RecursoMedioDePago
      * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
      */
     @POST
-    public ClienteDTO crearMedioDePago(MedioDePagoDTO nuevoMedioDePago) throws LogicaRestauranteException
+    public MedioDePagoDTO crearMedioDePago(MedioDePagoDTO nuevoMedioDePago) throws LogicaRestauranteException
     {
         return mockMedioDePago.crearMedioDePago(nuevoMedioDePago);
     }
