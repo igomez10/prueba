@@ -26,9 +26,9 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 @Consumes("application/json")
 public class RecursoMedioDePago
-{
+    {
         MockMedioDePago mockMedioDePago = new MockMedioDePago();
-
+        
 
     /**
      * Obtiene una lista con todos los medios de pago.
@@ -57,8 +57,8 @@ public class RecursoMedioDePago
 
      /**
      * Crea una nueva instancia de MedioDePago.
-     * @return ClienteDTO cliente creado.
-     * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
+     * @return mediodepagoDTO mediode pago creado.
+     * @throws LogicaRestauranteException Si ya existe un medio de pago con ese id.
      */
     @POST
     public MedioDePagoDTO crearMedioDePago(MedioDePagoDTO nuevoMedioDePago) throws LogicaRestauranteException

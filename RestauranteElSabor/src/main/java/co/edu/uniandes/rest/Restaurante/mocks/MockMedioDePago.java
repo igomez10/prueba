@@ -23,23 +23,28 @@ public class MockMedioDePago
     // Objeto para presentar logs de las operaciones
     private final static Logger logger = Logger.getLogger(MockMedioDePago.class.getName());
 
-    // Arreglo de clientes.
+    // Arreglo de medios de pagos.
     private static ArrayList<MedioDePagoDTO> medios;
 
 
     /**
      * Constructor. Crea los datos de ejemplo.
      */
-    public MockMedioDePago() throws ParseException
+    public MockMedioDePago()
     {
     	if (medios == null)
         {
+            try{
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             medios = new ArrayList<MedioDePagoDTO>();
             medios.add(new MedioDePagoDTO(1, false,"descripcion1", 1234567890 ,df.parse("02/07/2018"),123,"visa"));
             medios.add(new MedioDePagoDTO(2, false,"descripcion2",234567890,df.parse("07/11/2019"),234,"mastercard"));
             medios.add(new MedioDePagoDTO(3, false,"descripcion3",345678901,df.parse("07/01/2020"),345,"diners"));
-            medios.add(new MedioDePagoDTO(4, false,"descripcion4",456789012,df.parse("01/01/2017"),456,"visa"));
+            medios.add(new MedioDePagoDTO(4, false,"descripcion4",456789012,df.parse("01/01/2017"),456,"visa"));       
+            }
+            catch(ParseException e){
+                
+            }
         }
 
     	// Indica que se muestren todos los mensajes
@@ -70,9 +75,9 @@ public class MockMedioDePago
     }
 
     /**
-    * Obtiene el cliente con el id que entra por parametro.
-    * @return ClienteDTO Cliente buscado.
-    * @throws LogicaRestauranteException Cuando no existe un cliente con el id buscado.
+    * Obtiene el medio de pago con el id que entra por parametro.
+    * @return MedioDePagoDTO MedioDePago buscado.
+    * @throws LogicaRestauranteException Cuando no existe un medio de pago con el id buscado.
     */
     public MedioDePagoDTO darMedioDePago(Integer pId) throws LogicaRestauranteException
     {
@@ -116,7 +121,7 @@ public class MockMedioDePago
             }
 	}
 
-        // Se Agrega el cliente.
+        // Se Agrega el medio de pago.
     	logger.info("Agregando medio de pago: " + nuevoMedioDePago);
         medios.add(nuevoMedioDePago);
         return nuevoMedioDePago;
