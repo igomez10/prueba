@@ -68,7 +68,7 @@ public class PlatoDTO
         return descripcion;
     }
 
-    public void setDireccion(String desc) 
+    public void setDescripcion(String desc) 
     {
         this.descripcion = desc;
     }
@@ -80,8 +80,7 @@ public class PlatoDTO
     @Override
     public String toString() 
     {
-    	return "{ id : " + id +", nombre : \""+ nombre +"\", precio : \""+precio+"\", "
-                + "descripcion : \""+descripcion+"\" }" ;  
+    	return "{ id : " + id +", nombre : \""+ nombre +"\", precio : \""+precio+"\", descripcion : \""+descripcion+"\" }" ;  
     }
     
 }

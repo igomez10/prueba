@@ -142,7 +142,7 @@ public class MockPlato
                 }
                 if(descripcion != null && !descripcion.equalsIgnoreCase(""))
                 {
-                    plato.setDireccion(descripcion);
+                    plato.setDescripcion(descripcion);
                 }
                 return plato;
             }
