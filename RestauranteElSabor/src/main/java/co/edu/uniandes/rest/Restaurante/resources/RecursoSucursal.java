@@ -6,7 +6,6 @@
 package co.edu.uniandes.rest.Restaurante.resources;
 
 import co.edu.uniandes.rest.Restaurante.dtos.SucursalDTO;
-import co.edu.uniandes.rest.cities.dtos.SucursalDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
 import co.edu.uniandes.rest.Restaurante.mocks.MockSucursales;
 import java.util.List;
