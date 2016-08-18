@@ -43,7 +43,7 @@ public class MockPlato
     	
     	// Muestra información 
     	logger.info("Inicializada la lista de platos");
-    	logger.info("Clientes:\n" + platos );
+    	logger.info("Platos:\n" + platos );
     }    
     
     /**
