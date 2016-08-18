@@ -31,7 +31,7 @@ public class RecursoCliente
     MockClientes mockClientes = new MockClientes();
     
     /**
-     * Obtiene una lista con todos los clientes.
+     * Retorna la lista de clientes.
      * @return lista de clientes.
      * @throws LogicaRestauranteException Si no existe una lista de clientes en el sistema.
      */
@@ -43,7 +43,7 @@ public class RecursoCliente
     
      /**
      * Obtiene el cliente con el identificador buscado.
-     * @param pId Identificador del cliente buscado
+     * @param pId Identificador del cliente buscado.
      * @return ClienteDTO Cliente buscado.
      * @throws LogicaRestauranteException Si no existe un cliente con el identificador dado.
      */
@@ -55,26 +55,26 @@ public class RecursoCliente
     }
     
      /**
-     * Crea una nueva instancia de Cliente.
-     * @param nuevoCliente La instancia cliente que se quiere eliminar.
+     * Crea un cliente con la información enviada como parámetro.
+     * @param pNuevoCliente La instancia cliente que se quiere eliminar.
      * @return ClienteDTO cliente creado.
      * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
      */
     @POST
-    public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
+    public ClienteDTO crearCliente(ClienteDTO pNuevoCliente) throws LogicaRestauranteException
     {
-        return mockClientes.crearCliente(nuevoCliente);
+        return mockClientes.crearCliente(pNuevoCliente);
     }
     
     /**
-     * Recibe un cliente y lo actualiza al sistema por id.
+     * Actualiza la información del cliente
      * @param ClienteDTO Cliente a actualizar.
      * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
      */
     @PUT
-    public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException 
+    public ClienteDTO actualizarCliente(ClienteDTO pClienteAActualizar) throws LogicaRestauranteException 
     {
-        return mockClientes.actualizarCliente(clienteActualizado);
+        return mockClientes.actualizarCliente(pClienteAActualizar);
     }
     
     /**
