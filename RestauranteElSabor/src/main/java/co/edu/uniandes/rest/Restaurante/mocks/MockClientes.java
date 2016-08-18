@@ -9,11 +9,10 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
- * CityLogicMock
- * Mock del recurso Ciudades (Mock del servicio REST)
+/**
+ * Mock del recurso Cliente.
+ * @author jdguz
  */
-
 public class MockClientes 
 {	
     // Objeto para presentar logs de las operaciones
@@ -21,10 +20,9 @@ public class MockClientes
 	
     // Arreglo de clientes.
     private static ArrayList<ClienteDTO> clientes;
-
     
     /**
-     * Constructor. Crea los datos de ejemplo.
+     * Constructor.
      */
     public MockClientes() 
     {
@@ -59,13 +57,13 @@ public class MockClientes
     		logger.severe("Error interno: lista de clientes no existe.");
     		throw new LogicaRestauranteException("Error interno: lista de clientes no existe.");    		
     	}
-        
     	logger.info("Retornando todos los clientes.");
     	return clientes;
     }
     
     /**
     * Obtiene el cliente con el id que entra por parametro. 
+    * @param pId Id del cliente que se busca.
     * @return ClienteDTO Cliente buscado.
     * @throws LogicaRestauranteException Cuando no existe un cliente con el id buscado.  
     */    
@@ -83,7 +81,7 @@ public class MockClientes
         {
             if(cliente.getId().equals(pId))
             {
-                logger.info("Retornando el cliente con id "+pId);
+                logger.info("Retornando el cliente.");
                 return cliente;
             }
         }
@@ -95,11 +93,12 @@ public class MockClientes
      * Agrega un cliente al sistema.
      * @param nuevoCliente Cliente a agregar.
      * @return Cliente agregado.
+     * @throws LogicaRestauranteException Cuando se intenta crear un cliente que no existe. 
      */
     public ClienteDTO crearCliente(ClienteDTO nuevoCliente) throws LogicaRestauranteException
     {
-    	logger.info("Recibiendo solicitud de agregar cliente.");
         Long idClienteAAgregar = nuevoCliente.getId();
+    	logger.info("Recibiendo solicitud de agregar cliente con id "+idClienteAAgregar+".");
         
     	// Se busca que no exista un cliente con ese id.
 	for (ClienteDTO cliente : clientes) 
@@ -109,18 +108,24 @@ public class MockClientes
                 logger.severe("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
                 throw new LogicaRestauranteException("Error de uso: Se intento crear un cliente con un id "+idClienteAAgregar+" que ya existia.");
             }
-	}
-	
+        }
         // Se Agrega el cliente.
-    	logger.info("Agregando Cliente: " + nuevoCliente);
+    	logger.info("Agregado satisfactoriamente el cliente");
         clientes.add(nuevoCliente);
         return nuevoCliente;
     }
 
-  public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException
-   {   
-       logger.info("Recibiendo solicitud de actualizar cliente."); 
+    /**
+     * Recibe un cliente y lo actualiza en el sistema.
+     * @param nuevoCliente Cliente a agregar.
+     * @return Cliente agregado.
+     * @throws LogicaRestauranteException Cuando no existe un cliente con el id a actualizar. 
+     */
+    public ClienteDTO actualizarCliente(ClienteDTO clienteActualizado) throws LogicaRestauranteException
+    {   
        Long id = clienteActualizado.getId();
+       logger.info("Recibiendo solicitud de actualizar el cliente con id "+id+"."); 
+       
        
        // Se busca el cliente a actualizar
         for (ClienteDTO cliente : clientes) 
@@ -143,6 +148,7 @@ public class MockClientes
                 {
                     cliente.setDireccion(direccion);
                 }
+                logger.info("Actualizado satisfactoriamente."); 
                 return cliente;
             }
 	}
@@ -152,9 +158,14 @@ public class MockClientes
         throw new LogicaRestauranteException("Error de uso: Se pidio actualizar un cliente que no existe.");
    }
    
+     /**
+     * Elimina el cliente con el id dado.
+     * @param pId Identificacion del cliente que se quiere eliminar.
+     * @throws LogicaRestauranteException Cuando no existe un cliente con el id que se quiere eliminar. 
+     */
       public void eliminarCliente(Long pId) throws LogicaRestauranteException
    {
-       logger.info("Recibiendo solicitud de eliminar el cliente con id: " + pId);
+       logger.info("Recibiendo solicitud de eliminar el cliente con id: " + pId+".");
        boolean eliminado = false;
        
         // Se busca el cliente a eliminar

@@ -54,13 +54,9 @@ public class RecursoCliente
         return mockClientes.darCliente(pId);
     }
     
-    
      /**
      * Crea una nueva instancia de Cliente.
-     * @param pId Identificacion del cliente a crear.
-     * @param pNombre Nombre del cliente a crear.
-     * @param pApellidos Apellidos del cliente a crear.
-     * @param pDireccion Direccion del cliente a crear.
+     * @param nuevoCliente La instancia cliente que se quiere eliminar.
      * @return ClienteDTO cliente creado.
      * @throws LogicaRestauranteException Si ya existe un cliente con ese id.
      */
@@ -71,7 +67,7 @@ public class RecursoCliente
     }
     
     /**
-     *
+     * Recibe un cliente y lo actualiza al sistema por id.
      * @param ClienteDTO Cliente a actualizar.
      * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
      */
