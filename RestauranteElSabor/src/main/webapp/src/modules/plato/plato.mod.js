@@ -4,4 +4,5 @@
  * and open the template in the editor.
  */
 
+var mod = angular.module('main',['ui-router']);
 
