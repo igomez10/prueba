@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author zlcastaneda10
+ * @author ccnovoa10
  */
 @Path("platos")
 @Produces("application/json")
