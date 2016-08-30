@@ -14,20 +14,50 @@
         <script type="text/javascript" src="src/modules/app.js"></script>
    
     </head>
- <body>
-
+ <body> 
+     
+     
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Restaurante el Sabor</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Cliente</a></li>
-      <li><a href="#">Sucursal</a></li>
-      <li><a href="#">Reserva</a></li>
-      <li><a href="#">Plato</a></li>  
-      <li><a href="#">Medio de Pago</a></li>
+        
+        <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul>
+        </li>
+          
+      <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Cliente<span class="caret"></span></a> 
+            <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul>
+      </li>
+      
+      <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Sucursal <span class="caret"></span></a> 
+       <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul></li>
+      <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Reserva <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul></li>
+      <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Plato<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul></li>  
+      <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Medio de Pago <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+                <li><a ui-sref="cityCreate">Agregar</a></li>    
+                <li><a ui-sref="citiesList">Listar</a></li>       
+            </ul></li>
     </ul>
   </div>
 </nav>
