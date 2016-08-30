@@ -3,6 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+(function(ng){
+    var mod = ng.module("PlatoModule",["ngMessages"] );
+    mod.constant("platoContext", "api/platos");
+       mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+            var basePath = 'src/modules/plato/';
+            $urlRouterProvider.otherwise("/platoList");
+     
+            $stateProvider.state('platoList', {
+                url: '/platos',
+                views: {
+                    'mainView': {
+                        controller: 'platoCtrl',
+                        controllerAs: 'ctrl',
+                        templateUrl: basePath + 'plato.list.html'
+                    }
+                }
+            }).state('platoCreate', {
+                url: '/platos/create',
+                views: {
+                    'mainView': {
+                        controller: 'platoCtrl',
+                        controllerAs: 'ctrl',
+                        templateUrl: basePath + 'plato.create.html'
+                    }
+                }
 
-var mod = angular.module('main',['ui-router']);
+            }).state('platoEdit', {
+                url: '/platos/:platoId',
+                param: {
+                    platoId: null
+                },
+                views: {
+                    'mainView': {
+                        controller: 'platoCtrl',
+                        controllerAs: 'ctrl',
+                        templateUrl: basePath + 'plato.create.html'
+                    }
+                }
+            });
+        }]);
+    
+})(window.angular);
+
 
