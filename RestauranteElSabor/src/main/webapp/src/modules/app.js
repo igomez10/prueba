@@ -1,3 +1,18 @@
-(function(){
-    var app = angular.module('restaurante',['ui.router','cliente.mod.js','domicilios.mod.js','mediodepago.mod.js','plato.mod.js','reservas.mod.js','sucursal.mod.js']);
-})();
+(function(ng){
+    var app = ng.module("restaurante",[
+        "ui.router",
+        "clienteModule",
+        "domiciliosModule",
+        "mediodepagoModule",
+        "platoModule",
+        "reservasModule",
+        "sucursalModule",
+        "ngMessages"
+    ]);
+    app.config(['$logProvider', function ($logProvider) {
+            $logProvider.debugEnabled(true);
+        }]);
+    app.config(['$urlRouterProvider', function ($urlRouterProvider) {
+            $urlRouterProvider.otherwise('/RestauranteElSabor');
+        }]);
+})(window.angular);
