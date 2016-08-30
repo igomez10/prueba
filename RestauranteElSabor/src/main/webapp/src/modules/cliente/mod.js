@@ -4,7 +4,7 @@ var mod = angular.module("clienteModule", ['ui.router']);						// El modulo
 	function($stateProvider, $urlRouterProvider)
 	{
 		var basePath = "src/modules/cliente";							// La ruta del modulo
-		$urlRouterProvider.otherWiste("/cliente");	
+		$urlRouterProvider.otherWise("/cliente");	
 		
 		$stateProvider.state('clientes',							// Este estado configura la url y el templateURl que el archivo que contiene los links hacia los otros estador.
 		{                                                                                              
