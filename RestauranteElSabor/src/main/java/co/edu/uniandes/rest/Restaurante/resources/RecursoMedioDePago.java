@@ -22,7 +22,7 @@ import javax.ws.rs.Produces;
  *
  * @author igomez10
  */
-@Path("mediodepago")
+@Path("mediosdepago")
 @Produces("application/json")
 @Consumes("application/json")
 public class RecursoMedioDePago
