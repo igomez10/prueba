@@ -12,6 +12,8 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script> 
        
         <script type="text/javascript" src="src/modules/app.js"></script>
+        <script src="src/modules/domicilios/domicilios.mod.js" type="text/javascript"></script>
+        <script src="src/modules/domicilios/domicilios.ctrl.js" type="text/javascript"></script>
    
     </head>
  <body> 
@@ -43,11 +45,17 @@
                 <li><a ui-sref="cityCreate">Agregar</a></li>    
                 <li><a ui-sref="reservaList">Listar</a></li>       
             </ul></li>
+       <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Domicilio<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+                <li><a ui-sref="domicilioCreate">Agregar</a></li>    
+                <li><a ui-sref="domicilioList">Listar</a></li>       
+            </ul></li>      
       <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Plato<span class="caret"></span></a>
        <ul class="dropdown-menu">
                 <li><a ui-sref="platoCreate">Agregar</a></li>    
                 <li><a ui-sref="platoList">Listar</a></li>       
             </ul></li>  
+      
       <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Medio de Pago <span class="caret"></span></a>
        <ul class="dropdown-menu">
                 <li><a ui-sref="cityCreate">Agregar</a></li>    
