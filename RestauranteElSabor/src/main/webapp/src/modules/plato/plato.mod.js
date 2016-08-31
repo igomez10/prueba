@@ -14,8 +14,8 @@
                 url: '/platos',
                 views: {
                     'mainView': {
-                        controller: 'platoCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/plato/plato.ctrl.js',
+                        controllerAs: 'platoCtrl',
                         templateUrl: basePath + 'plato.list.html'
                     }
                 }
@@ -23,8 +23,8 @@
                 url: '/platos/create',
                 views: {
                     'mainView': {
-                        controller: 'platoCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/plato/plato.ctrl.js',
+                        controllerAs: 'platoCtrl',
                         templateUrl: basePath + 'plato.create.html'
                     }
                 }
@@ -36,8 +36,8 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'platoCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/plato/plato.ctrl.js',
+                        controllerAs: 'platoCtrl',
                         templateUrl: basePath + 'plato.create.html'
                     }
                 }

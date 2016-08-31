@@ -16,8 +16,8 @@
                 url: '/reservas',
                 views: {
                     'mainView': {
-                        controller: 'reservaCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/reservas/reserva.ctrl.js',
+                        controllerAs: 'reservaCtrl',
                         templateUrl: basePath + 'reserva.list.html'
                     }
                 }
@@ -25,8 +25,8 @@
                 url: '/reservas/create',
                 views: {
                     'mainView': {
-                        controller: 'reservaCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/reservas/reserva.ctrl.js',
+                        controllerAs: 'reservaCtrl',
                         templateUrl: basePath + 'reserva.create.html'
                     }
                 }
@@ -38,8 +38,8 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'reservaCtrl',
-                        controllerAs: 'ctrl',
+                        controller: 'scr/modules/reservas/reserva.ctrl.js',
+                        controllerAs: 'reservaCtrl',
                         templateUrl: basePath + 'reserva.create.html'
                     }
                 }

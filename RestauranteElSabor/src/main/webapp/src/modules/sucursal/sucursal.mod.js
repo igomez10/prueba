@@ -1,5 +1,5 @@
 (function (ng) {
-    var app = ng.module("sucursalModule", ["ngMessages"]);
+    var app = ng.module("sucursalModule", ["ngMessages","ui.router"]);
     app.constant("sucursalContext", "api/sucursales");
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/sucursal/';
@@ -9,7 +9,7 @@
                 url: '/sucursal',
                 views: {
                     'mainView': {
-                        controller: 'sucursalCtrl',
+                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.list.html'
                     }
@@ -18,7 +18,7 @@
                 url: '/sucursal/create',
                 views: {
                     'mainView': {
-                        controller: 'sucursalCtrl',
+                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.create.html'
                     }
@@ -31,7 +31,7 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'sucursalCtrl',
+                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.create.html'
                     }
