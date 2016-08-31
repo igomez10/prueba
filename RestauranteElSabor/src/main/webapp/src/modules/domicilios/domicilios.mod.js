@@ -5,7 +5,7 @@
  */
 
 (function (ng) {
-    var mod = ng.module("domiciliosModule", ["ngMessages"]);
+    var mod = ng.module("domiciliosModule", ["ngMessages","ui.router"]);
     mod.constant("domicilioContext", "api/domicilios");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/domicilios/';

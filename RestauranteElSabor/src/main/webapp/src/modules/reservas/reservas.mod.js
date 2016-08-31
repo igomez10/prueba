@@ -6,13 +6,13 @@
 
 
 (function(ng){
-    var mod = ng.module("reservaModule",["ngMessages"] );
+    var mod = ng.module("reservaModule",["ngMessages","ui.router"] );
     mod.constant("reservaContext", "api/reservas");
        mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/reserva/';
             $urlRouterProvider.otherwise("/reservaList");
      
-            $stateProvider.state('ReservaList', {
+            $stateProvider.state('reservaList', {
                 url: '/reservas',
                 views: {
                     'mainView': {

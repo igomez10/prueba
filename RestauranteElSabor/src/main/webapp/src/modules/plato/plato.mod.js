@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 (function(ng){
-    var mod = ng.module("platoModule",["ngMessages"] );
+    var mod = ng.module("platoModule",["ngMessages", "ui.router"] );
     mod.constant("platoContext", "api/platos");
        mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/plato/';

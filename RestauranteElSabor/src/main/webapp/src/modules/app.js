@@ -5,7 +5,7 @@
         'domiciliosModule',
         'mediodepagoModule',
         'platoModule',
-        'reservasModule',
+        'reservaModule',
         'sucursalModule',
         'ngMessages'
     ]);
