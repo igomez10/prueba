@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 (function (ng) {
-    var mod = ng.module("domicilioModule");
+    var mod = ng.module("domiciliosModule");
 
         mod.controller("domicilioCtrl", ['$scope', '$state', '$stateParams', '$http', 'platoContext', function ($scope, $state, $stateParams, $http, context) {
 
