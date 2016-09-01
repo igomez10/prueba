@@ -69,7 +69,7 @@ public class RecursoDomicilio
  
     /**
      * Actualiza un domicilio con la información enviada como parámetro.
-     * @param DomicilioDTO domi La instancia domicilio que se quiere actualizar.
+     * @param Domicilio domi La instancia domicilio que se quiere actualizar.
      * @throws LogicaRestauranteException Si ya existe un domicilio con ese id.
      */
    
