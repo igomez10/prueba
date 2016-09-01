@@ -1,8 +1,12 @@
- <div class="container well">
-        <h1>Nuevo Cliente</h1>
-        <p1>Escribir texto aca de bienvendida.</p1>
-                         
-        <h2>Ingresa tus datos</h2>
+<div>
+    <h1>Nuevo Cliente</h1>
+    <p1>Escribir texto aca agregar cliente.</p1>
+</div>
+        
+   
+<div class="container well">
+        
+        <h2>Ingresa los datos</h2>
 
         <form novalidate name ="form" id="formaCliente" role="form" class="form-horizontal" ng-submit="form.$valid && ctrl.saveRecord(currentRecord.id, currentRecord.nombre, currentRecord.apellidos, currentRecord.direccion)">
             <fieldset>
@@ -10,28 +14,28 @@
                 <div class="form-group">
                     <label for ="name" class="control-label col-sm-2">Identificacion:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="idCliente" placeholder="Documento con el cual te identificas" ng-model="currentRecord.id" ng-init="currentRecord.id" required />
+                        <input type="text" class="form-control" id="idCliente" placeholder="Documento con el cual se identifica" ng-model="currentRecord.id" ng-init="currentRecord.id" required />
                     </div>
                 </div>
         
                 <div class="form-group">
                     <label class="control-label col-sm-2">Nombre:</label>
                     <div class="col-sm-5"> 
-                        <input type="text" class="form-control" id="nombreCliente" placeholder="Tu nombre"  ng-model="currentRecord.nombre" ng-init="currentRecord.nombre" required >
+                        <input type="text" class="form-control" id="nombreCliente" placeholder="Su nombre"  ng-model="currentRecord.nombre" ng-init="currentRecord.nombre" required >
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2">Apellidos:</label>
                     <div class="col-sm-5"> 
-                        <input type="text" class="form-control" id="apellidosCliente" placeholder="Tus apellidos"  ng-model="currentRecord.apellidos" ng-init="currentRecord.apellidos" required >
+                        <input type="text" class="form-control" id="apellidosCliente" placeholder="Sus apellidos"  ng-model="currentRecord.apellidos" ng-init="currentRecord.apellidos" required >
                     </div>
                 </div>
       
                 <div class="form-group">
                     <label class="control-label col-sm-2">Direccion:</label>
                     <div class="col-sm-5"> 
-                        <input type="text" class="form-control" id="direccionCliente" placeholder="Tu direccion"  ng-model="currentRecord.direccion" ng-init="currentRecord.direccion" required >
+                        <input type="text" class="form-control" id="direccionCliente" placeholder="Su direccion"  ng-model="currentRecord.direccion" ng-init="currentRecord.direccion" required >
                     </div>
                 </div>
            

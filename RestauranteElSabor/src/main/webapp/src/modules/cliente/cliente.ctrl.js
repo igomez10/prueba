@@ -1,58 +1,59 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Controlador Cliente.
  */
 (function(ng)
 {
-    var mod = ng.module("clienteModule",["ngMessages", "ui.router"] );
-    mod.constant("clienteContext", "api/clientes");
-    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) 
+    var mod = ng.module("clienteModule");
+    
+    mod.controller("clienteCtrl", ['$scope', '$state', '$stateParams', '$http', 'platoContext', function ($scope, $state, $stateParams, $http, context) 
+    {
+        $scope.records = {};                            // La lista de clientes no contiene ninguno.
+        
+        $http.get(context).then(function(response)      // Obtiene los clientes del sistema GET.
         {
-            var basePath = 'src/modules/cliente/';
-            $urlRouterProvider.otherwise("/clienteList");
-            $stateProvider.state('clienteList', 
+            $scope.records = response.data;    
+        }, responseError);
+        
+        if ($stateParams.idCliente !== null && $stateParams.idCliente !== undefined) 
+        {
+                id = $stateParams.clienteId;              // Toma el parametro id.
+                
+                $http.get(context + "/" + id)             // Obtiene el dato del recurso REST
+                    .then(function (response) 
+                    {  
+                        $scope.currentRecord = response.data;    // Comando para actualizar el reccord que llega.
+                    }, responseError);
+        } 
+        else
+        {
+            // Ajusta el record actual como un default.
+            $scope.currentRecord = 
             {
-                url: '/clientes',
-                views: 
-                {
-                    'mainView': 
-                    {
-                        controller: 'scr/modules/cliente/cliente.ctrl.js',
-                        controllerAs: 'clienteCtrl',
-                        templateUrl: basePath + 'cliente.list.html'
-                    }
-                }
-            }).state('clienteCreate', 
+                id: undefined,
+                nombre: 's',
+                precio: undefined,
+                descripcion: 'ss'
+            };
+             
+            $scope.alerts = [];
+        }
+        
+        this.saveRecord = function (id, nombre, precio, descripcion) 
+        {
+            currentRecord = $scope.currentRecord;        
+            
+            if (id != null) 
             {
-                url: '/clientes/create',
-                    views: 
-                    {
-                        'mainView': 
+                // ejecuta POST en el recurso REST
+                return $http.post(context, currentRecord)
+                        .then(function () 
                         {
-                            controller: 'scr/modules/cliente/cliente.ctrl.js',
-                            controllerAs: 'clienteCtrl',
-                            templateUrl: basePath + 'cliente.create.html'
-                        }
-                    }
-            }).state('clienteEdit', 
-            {
-                url: '/clientes/:clienteId',
-                param: 
-                {
-                    clienteId: null
-                },
-                views: 
-                {
-                    'mainView': 
-                    {
-                        controller: 'scr/modules/cliente/cliente.ctrl.js',
-                            controllerAs: 'clienteCtrl',
-                            templateUrl: basePath + 'cliente.create.html'
-                    }
-                }
-            });
-        }]);   
+                            $state.go('clienteList');
+                        }, responseError);
+            } 
+        }
+    }]);
+
 })(window.angular);
-
-
+    
+    
