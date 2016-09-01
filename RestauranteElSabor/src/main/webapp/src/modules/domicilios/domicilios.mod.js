@@ -15,7 +15,7 @@
                 url: '/domicilios',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/domicilios/domicilios.ctrl.js',
+                        controller: 'domiciliosCtrl',
                         controllerAs: 'domiciliosCtrl',
                         templateUrl: basePath + 'domicilios.list.html'
                     }
@@ -24,7 +24,7 @@
                 url: '/cities/create',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/domicilios/domicilios.ctrl.js',
+                        controller: 'domiciliosCtrl',
                         controllerAs: 'domiciliosCtrl',
                         templateUrl: basePath + 'domicilio.create.html'
                     }
@@ -37,7 +37,7 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/domicilios/domicilios.ctrl.js',
+                        controller: 'domiciliosCtrl',
                         controllerAs: 'domiciliosCtrl',
                         templateUrl: basePath + 'domicilio.create.html'
                     }

@@ -9,7 +9,7 @@
                 url: '/sucursal',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
+                        controller: 'sucursalCtrl',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.list.html'
                     }
@@ -18,7 +18,7 @@
                 url: '/sucursal/create',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
+                        controller: 'sucursalCtrl',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.create.html'
                     }
@@ -31,7 +31,7 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/sucursal/sucursal.ctrl.js',
+                        controller: 'sucursalCtrl',
                         controllerAs: 'sucursalCtrl',
                         templateUrl: basePath + 'sucursal.create.html'
                     }

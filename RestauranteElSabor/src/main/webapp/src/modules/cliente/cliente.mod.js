@@ -14,7 +14,7 @@
                 url: '/clientes',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/cliente/cliente.ctrl.js',
+                        controller: 'clienteCtrl',
                         controllerAs: 'clienteCtrl',
                         templateUrl: basePath + 'cliente.list.html'
                     }
@@ -23,7 +23,7 @@
                 url: '/clientes/create',
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/cliente/cliente.ctrl.js',
+                        controller: 'clienteCtrl',
                         controllerAs: 'clienteCtrl',
                         templateUrl: basePath + 'cliente.create.html'
                     }
@@ -36,7 +36,7 @@
                 },
                 views: {
                     'mainView': {
-                        controller: 'scr/modules/cliente/cliente.ctrl.js',
+                        controller: 'clienteCtrl',
                         controllerAs: 'clienteCtrl',
                         templateUrl: basePath + 'cliente.create.html'
                     }
