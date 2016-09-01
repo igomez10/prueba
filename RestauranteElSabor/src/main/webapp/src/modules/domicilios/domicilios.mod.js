@@ -1,17 +1,11 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 (function (ng) {
-    var mod = ng.module("domiciliosModule", ["ngMessages","ui.router"]);
+    var mod = ng.module("domiciliosModule", ["ngMessages", "ui.router"]);
     mod.constant("domicilioContext", "api/domicilios");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/domicilios/';
-            $urlRouterProvider.otherwise("/domicilioList");
-     
-            $stateProvider.state('domicilioList', {
+            $urlRouterProvider.otherwise("/domiciliosList");
+
+            $stateProvider.state('domiciliosList', {
                 url: '/domicilios',
                 views: {
                     'mainView': {
@@ -20,13 +14,13 @@
                         templateUrl: basePath + 'domicilios.list.html'
                     }
                 }
-            }).state('domicilioCreate', {
-                url: '/cities/create',
+            }).state('domiciliosCreate', {
+                url: '/domicilios/create',
                 views: {
                     'mainView': {
                         controller: 'domiciliosCtrl',
                         controllerAs: 'domiciliosCtrl',
-                        templateUrl: basePath + 'domicilio.create.html'
+                        templateUrl: basePath + 'domicilios.create.html'
                     }
                 }
 
@@ -39,7 +33,7 @@
                     'mainView': {
                         controller: 'domiciliosCtrl',
                         controllerAs: 'domiciliosCtrl',
-                        templateUrl: basePath + 'domicilio.create.html'
+                        templateUrl: basePath + 'domicilios.create.html'
                     }
                 }
             });

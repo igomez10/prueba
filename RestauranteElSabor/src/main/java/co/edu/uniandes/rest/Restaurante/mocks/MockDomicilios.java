@@ -32,9 +32,9 @@ public class MockDomicilios {
         
         if (domicilios == null) {
             domicilios = new ArrayList<>();
-            domicilios.add(new DomicilioDTO(1L, "Direccion1", "Plato 1", 10000));
-            domicilios.add(new DomicilioDTO(2L, "Direccion2", "Plato 2", 15000));
-            domicilios.add(new DomicilioDTO(3L, "Direccion3", "Plato 3", 12000));
+            domicilios.add(new DomicilioDTO(1L, "Direccion1", "Plato 1", 12000));
+            domicilios.add(new DomicilioDTO(2L, "Direccion2", "Plato 2", 18000));
+            domicilios.add(new DomicilioDTO(3L, "Direccion3", "Plato 3", 15000));
 
         }
         
