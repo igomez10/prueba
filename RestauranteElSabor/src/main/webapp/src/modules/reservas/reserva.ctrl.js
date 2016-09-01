@@ -9,18 +9,18 @@
 
         mod.controller("reservaCtrl", ['$scope', '$state', '$stateParams', '$http', 'reservaContext', function ($scope, $state, $stateParams, $http, context) {
 
-            // inicialmente el listado de ciudades está vacio
+            // inicialmente el listado de ciudades estÃ¡ vacio
             $scope.records = {};
             // carga las ciudades
             $http.get(context).then(function(response){
                 $scope.records = response.data;    
             }, responseError);
 
-            // el controlador recibió un cityId ??
-            // revisa los parámetros (ver el :cityId en la definición de la ruta)
+            // el controlador recibiÃ³ un cityId ??
+            // revisa los parÃ¡metros (ver el :cityId en la definiciÃ³n de la ruta)
             if ($stateParams.reservaId !== null && $stateParams.reservaId !== undefined) {
                 
-                // toma el id del parámetro
+                // toma el id del parÃ¡metro
                 id = $stateParams.reservaId;
                 // obtiene el dato del recurso REST
                 $http.get(context + "/" + id)
@@ -30,7 +30,7 @@
                         $scope.currentRecord = response.data;
                     }, responseError);
 
-            // el controlador no recibió un cityId
+            // el controlador no recibiÃ³ un cityId
             } else
             {
                 // el registro actual debe estar vacio
@@ -70,10 +70,10 @@
                 };
             };
 
-
+           
 
             // -----------------------------------------------------------------
-            // Funciones para manejra los mensajes en la aplicación
+            // Funciones para manejra los mensajes en la aplicaciÃ³n
 
 
             //Alertas
@@ -81,7 +81,7 @@
                 $scope.alerts.splice(index, 1);
             };
 
-            // Función showMessage: Recibe el mensaje en String y su tipo con el fin de almacenarlo en el array $scope.alerts.
+            // FunciÃ³n showMessage: Recibe el mensaje en String y su tipo con el fin de almacenarlo en el array $scope.alerts.
             function showMessage(msg, type) {
                 var types = ["info", "danger", "warning", "success"];
                 if (types.some(function (rc) {
