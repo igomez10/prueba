@@ -9,7 +9,7 @@
     var mod = ng.module("reservaModule",["ngMessages","ui.router"] );
     mod.constant("reservaContext", "api/reservas");
        mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-            var basePath = 'src/modules/reserva/';
+            var basePath = 'src/modules/reservas/';
             $urlRouterProvider.otherwise("/reservaList");
      
             $stateProvider.state('reservaList', {

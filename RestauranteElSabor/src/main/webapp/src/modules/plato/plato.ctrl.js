@@ -1,17 +1,18 @@
 (function (ng) {
+    
     var mod = ng.module("platoModule");
 
-        mod.controller("platoCtrl", ['$scope', '$state', '$stateParams', '$http', 'platoContext', function ($scope, $state, $stateParams, $http, context) {
+    mod.controller("platoCtrl", ['$scope', '$state', '$stateParams', '$http', 'platoContext', function ($scope, $state, $stateParams, $http, context) {
 
-            // inicialmente el listado de ciudades está vacio
+            // inicialmente el listado de plato está vacio
             $scope.records = {};
-            // carga las ciudades
+            // carga las plato
             $http.get(context).then(function(response){
                 $scope.records = response.data;    
             }, responseError);
 
-            // el controlador recibió un cityId ??
-            // revisa los parámetros (ver el :cityId en la definición de la ruta)
+            // el controlador recibió un platoId ??
+            // revisa los parámetros (ver el :platoId en la definición de la ruta)
             if ($stateParams.platoId !== null && $stateParams.platoId !== undefined) {
                 
                 // toma el id del parámetro
@@ -24,7 +25,7 @@
                         $scope.currentRecord = response.data;
                     }, responseError);
 
-            // el controlador no recibió un cityId
+            // el controlador no recibió un platoId
             } else
             {
                 // el registro actual debe estar vacio
@@ -37,7 +38,7 @@
             }
 
 
-            this.saveRecord = function (id) {
+            this.saveRecord = function (id, nombre, precio, descripcion) {
                 currentRecord = $scope.currentRecord;
                 
                 // si el id es null, es un registro nuevo, entonces lo crea

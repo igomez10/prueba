@@ -1,13 +1,14 @@
 (function(ng){
-    var app = ng.module('restaurante',[
+    var app = ng.module('mainApp',[
         'ui.router',
+        'ngMessages',
         'clienteModule',
         'domiciliosModule',
         'mediodepagoModule',
         'platoModule',
         'reservaModule',
         'sucursalModule',
-        'ngMessages'
+        
     ]);
     app.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
