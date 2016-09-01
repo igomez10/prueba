@@ -7,43 +7,44 @@ and open the template in the editor.
 <html>
     <head>
         <title>RESERVAS</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <div class="container">
-            <h2>Crear Reservas</h2>
-            
-    <form class="form-horizontal">
-        <div class="form-group">
-          <label class="control-label col-sm-2">Fecha:</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" id="nombrePlato" placeholder="Fecha de la reserva">
-          </div>
-        </div>
         
-        <div class="form-group">
-          <label class="control-label col-sm-2">Cantidad:</label>
-          <div class="col-sm-5"> 
-            <input type="text" class="form-control" id="precioPlato" placeholder="Número de personas">
-          </div>
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}} </alert>
+    <form novalidate name="form" id="reserva-form" role="form" ng-submit="form.$valid && ctrl.saveRecord(currentRecord.id)">
+        
+        <div ng-messages="form.$error">
+            <div ng-message="required">Fill the required fields!</div>
         </div>
-
-
-        <div class="form-group">
-          <label class="control-label col-sm-2">Piso:</label>
-          <div class="col-sm-5"> 
-            <input type="text" class="form-control" id="descPlato" placeholder="Piso 1 ó 2">
-          </div>
-        </div>
-           
-           
-        <div class="form-group"> 
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Hacer Reserva</button>
-          </div>
-        </div>
+   
+        <fieldset>
+            <input id="fecha" class="form-control" type="hidden" ng-model="currentRecord.fecha"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.fecha.$valid && form.fecha.$dirty, 'has-error': form.fecha.$invalid && (form.fecha.$dirty || form.$submitted)}" >
+                <label for="fecha" class="col-md-2 control-label">Fecha</label>
+                <div class="col-md-10">
+                    <input id="fecha" fecha="fecha" class="form-control" type="text" ng-model="currentRecord.fecha" ng-init="currentRecord.fecha" required />
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12" ng-class="{'has-success': form.numPersonas.$valid && form.numPersonas.$dirty, 'has-error': form.numPersonas.$invalid && (form.numPersonas.$dirty || form.$submitted)}" >
+                <label for="numPersonas" class="col-md-2 control-label">Candidad Personas</label>
+                <div class="col-md-10">
+                    <input id="numPersonas" numPersonas="numPersonas" class="form-control" type="text" ng-model="currentRecord.numPersonas" ng-init="currentRecord.numPersonas" required />
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12" ng-class="{'has-success': form.piso.$valid && form.piso.$dirty, 'has-error': form.piso.$invalid && (form.piso.$dirty || form.$submitted)}" >
+                <label for="piso" class="col-md-2 control-label">Piso</label>
+                <div class="col-md-10">
+                    <input id="piso" piso="piso" class="form-control" type="text" ng-model="currentRecord.piso" ng-init="currentRecord.piso" required />
+                </div>
+            </div>
+            <button type="button" ui-sref='reservaList'>Cancelar</button>
+            <button type="submit" >Guardar Cambios</button>
+        </fieldset>
     </form>
-        </div>
+        
+     
     </body>
 </html>
