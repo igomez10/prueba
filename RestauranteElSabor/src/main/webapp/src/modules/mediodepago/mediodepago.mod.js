@@ -19,7 +19,7 @@
                  url: '/mediosdepago',
                  views: {
                      'mainView': {
-                         controller: 'scr/modules/mediodepago/mediodepago.ctrl.js',
+                         controller: 'mediodepagoCtrl',
                          controllerAs: 'mediodepagoCtrl',
                          templateUrl: basePath + 'mediodepago.list.html'
                      }
@@ -28,7 +28,7 @@
                  url: '/mediosdepago/create',
                  views: {
                      'mainView': {
-                         controller: 'scr/modules/mediodepago/mediodepago.ctrl.js',
+                         controller: 'mediodepagoCtrl',
                          controllerAs: 'mediodepagoCtrl',
                          templateUrl: basePath + 'mediodepago.create.html'
                      }
@@ -41,7 +41,7 @@
                  },
                  views: {
                      'mainView': {
-                         controller: 'scr/modules/mediodepago/mediodepago.ctrl.js',
+                         controller: 'mediodepagoCtrl',
                          controllerAs: 'mediodepagoCtrl',
                          templateUrl: basePath + 'mediodepago.create.html'
                      }
