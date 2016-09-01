@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function(ng){
+(function(ng)
+{
     var mod = ng.module("clienteModule",["ngMessages", "ui.router"] );
     mod.constant("clienteContext", "api/clientes");
-       mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-            var basePath = 'src/modules/cliente/';
-            $urlRouterProvider.otherwise("/clienteList");
+       mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) 
+           {
+                var basePath = 'src/modules/cliente/';
+                $urlRouterProvider.otherwise("/clienteList");
      
-            $stateProvider.state('clienteList', {
-                url: '/clientes',
-                views: {
-                    'mainView': {
-                        controller: 'clienteCtrl',
+                $stateProvider.state('clienteList', 
+                {
+                    url: '/clientes',
+                    views: 
+                            {
+                                'mainView': 
+                                {
+                                    controller: 'clienteCtrl',
                         controllerAs: 'clienteCtrl',
                         templateUrl: basePath + 'cliente.list.html'
                     }
