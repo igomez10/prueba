@@ -59,7 +59,8 @@ public class RecursoSucursal
      * @param pId Identificacion de la sucursal a crear.
      * @param pCiudad Nombre de la sucursal a crear.
      * @param pDireccion Direccion del sucursal a crear.
-     * @param pMesas Numero de mesas de la sucursal a crear
+     * @param pMesas Numero de mesas de la sucursal a crear.
+     * @param pCalificacion Calificacion de la sucursal a crear.
      * @return SucursalDTO sucursal creada.
      * @throws LogicaRestauranteException Si ya existe un sucursal con ese id.
      */

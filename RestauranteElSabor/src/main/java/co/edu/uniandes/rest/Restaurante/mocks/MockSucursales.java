@@ -31,10 +31,10 @@ public class MockSucursales
     	if (sucursales == null) 
         {
             sucursales = new ArrayList<SucursalDTO>();
-            sucursales.add(new SucursalDTO(1L, "Ciudad1", "Direccion1", 1));
-            sucursales.add(new SucursalDTO(2L, "Ciudad2", "Direccion2", 2));
-            sucursales.add(new SucursalDTO(3L, "Ciudad3", "Direccion3", 3));
-            sucursales.add(new SucursalDTO(4L, "Ciudad4", "Direccion4", 4));
+            sucursales.add(new SucursalDTO(1L, "Ciudad1", "Direccion1", 1, 1));
+            sucursales.add(new SucursalDTO(2L, "Ciudad2", "Direccion2", 2, 2));
+            sucursales.add(new SucursalDTO(3L, "Ciudad3", "Direccion3", 3, 3));
+            sucursales.add(new SucursalDTO(4L, "Ciudad4", "Direccion4", 4, 4));
         }
         
     	// Indica que se muestren todos los mensajes
@@ -130,6 +130,7 @@ public class MockSucursales
                 String ciudad = sucursalActualizada.getCiudad();
                 String direccion = sucursalActualizada.getDireccion();
                 int mesas = sucursalActualizada.getMesas();
+                int calificacion = sucursalActualizada.getCalificacion();
                 
                 if(ciudad != null && !ciudad.equalsIgnoreCase(""))
                 {
@@ -142,6 +143,10 @@ public class MockSucursales
                 if(mesas < 0)
                 {
                     sucursal.setMesas(mesas);
+                }
+                if(calificacion < 0 && calificacion > 6)
+                {
+                    sucursal.setCalificacion(calificacion);
                 }
                 return sucursal;
             }

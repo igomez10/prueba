@@ -19,16 +19,19 @@ public class SucursalDTO
     
     private int mesas;
     
+    private int calificacion;
+    
     public SucursalDTO()
     {   }
     
-    public SucursalDTO(Long pId, String pCiudad, String pDireccion, int pMesas)
+    public SucursalDTO(Long pId, String pCiudad, String pDireccion, int pMesas, int pCalificacion)
     {
         super();
         this.id = pId;
         this.ciudad = pCiudad;
         this.direccion = pDireccion;
         this.mesas = pMesas;
+        this.calificacion = pCalificacion;
     }
 
     public Long getId() 
@@ -70,6 +73,16 @@ public class SucursalDTO
     {
         this.mesas = mesas;
     }
+    
+    public int getCalificacion()
+    {
+        return calificacion;
+    }
+    
+    public void setCalificacion(int calificacion)
+    {
+        this.calificacion = calificacion;
+    }
         
     /**
      * Representacion JSON de un cliente
@@ -78,7 +91,7 @@ public class SucursalDTO
     @Override
     public String toString() 
     {
-    	return "{ id : " + id + ", ciudad : \""+ ciudad +"\", direccion : \""+direccion+"\", mesas : \""+mesas+"\" }" ;  
+    	return "{ id : " + id + ", ciudad : \""+ ciudad +"\", direccion : \""+direccion+"\", mesas : \""+mesas+"\", calificacion : \""+calificacion+"\" }" ;  
     }
     
 }
