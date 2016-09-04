@@ -1,0 +1,6 @@
+<div class="col-md-6 well">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}} </alert>
+    <form novalidate name="form" id="plato-form" role="form" ng-submit="form.$valid && ctrl.deleteRecord(currentRecord)">
+        <p> Se ha eliminado el plato </p>
+        <button type="button" ng-click="ctrl.deleteRecord(currentRecord) "ui-sref='platoList' >Aceptar</button> 
+</div>

@@ -118,32 +118,24 @@ public class MockPlato
         return nuevoPlato;
     }
 
-  public PlatoDTO actualizarPlato(PlatoDTO platoAct) throws LogicaRestauranteException
+  public PlatoDTO actualizarPlato(Long id, PlatoDTO platoAct) throws LogicaRestauranteException
    {   
-       logger.info("Recibiendo solicitud de actualizar plato."); 
-       Long id = platoAct.getId();
+       logger.info("Recibiendo solicitud de actualizar plato."+ platoAct); 
+       
        
        // Se busca el cliente a actualizar
         for (PlatoDTO plato : platos) 
         {
-            if(plato.getId().equals(id))
-            {
-                String nombre = platoAct.getNombre();
-                int precio =platoAct.getPrecio();
-                String descripcion = platoAct.getDescripcion();
-                
-                if(nombre != null && !nombre.equalsIgnoreCase(""))
-                {
-                    plato.setNombre(nombre);
-                }
-                if(precio!=0)
-                {
-                    plato.setPrecio(precio);
-                }
-                if(descripcion != null && !descripcion.equalsIgnoreCase(""))
-                {
-                    plato.setDescripcion(descripcion);
-                }
+             if (Objects.equals(plato.getId(), id)) {
+
+                // modifica la ciudad
+                plato.setId(platoAct.getId());
+                plato.setNombre(platoAct.getNombre());
+                plato.setDescripcion(platoAct.getDescripcion());
+                plato.setPrecio(platoAct.getPrecio());
+
+                // retorna el plato modificado
+                logger.info("Modificando plato " + plato);
                 return plato;
             }
 	}
@@ -155,24 +147,21 @@ public class MockPlato
    
       public void eliminarPlato(Long pId) throws LogicaRestauranteException
    {
-       boolean eliminado = false;
+        logger.info("recibiendo solictud de eliminar plato con id " + pId);
        
-        // Se busca el cliente a eliminar
-        for (int i = 0; i< platos.size() && !eliminado; i++) 
-        {
-            PlatoDTO plato = platos.get(i);
-            if(plato.getId().equals(pId))
-            {
-                platos.remove(i);
-                eliminado = true;
+         for (PlatoDTO plato : platos) {
+            if (Objects.equals(plato.getId(), pId)) {
+
+                // elimina la ciudad
+                logger.info("eliminando plato " + plato);
+                platos.remove(plato);
+                return;
             }
         }
-       
-        if(!eliminado)
-        {
+
         // Si se llega hasta aca es porque no se encontro plato con el id buscado.
         logger.severe("Error de uso: Se pidio eliminar un plato con id "+pId+" que no existe.");
         throw new LogicaRestauranteException("Error de uso: Se pidio eliminar un plato con id "+pId+" que no existe.");
-        }
+        
    }
 }

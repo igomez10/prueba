@@ -76,9 +76,10 @@ public class RecursoPlato
      * @throws LogicaRestauranteException Si no existe un cliente con el id dado.
      */
     @PUT
-    public PlatoDTO actualizarPlato(PlatoDTO platoActualizado) throws LogicaRestauranteException 
+     @Path("{id: \\d+}")
+    public PlatoDTO actualizarPlato(@PathParam("id") Long id, PlatoDTO plato) throws LogicaRestauranteException 
     {
-        return mockPlato.actualizarPlato(platoActualizado);
+        return mockPlato.actualizarPlato(id, plato);
     }
     
     /**

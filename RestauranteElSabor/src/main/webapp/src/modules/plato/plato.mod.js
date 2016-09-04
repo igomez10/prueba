@@ -15,7 +15,7 @@
                 views: {
                     'mainView': {
                         controller: 'platoCtrl',
-                        controllerAs: 'platoCtrl',
+                        controllerAs: 'ctrl',
                         templateUrl: basePath + 'plato.list.html'
                     }
                 }
@@ -24,7 +24,7 @@
                 views: {
                     'mainView': {
                         controller: 'platoCtrl',
-                        controllerAs: 'platoCtrl',
+                        controllerAs: 'ctrl',
                         templateUrl: basePath + 'plato.create.html'
                     }
                 }
@@ -37,8 +37,20 @@
                 views: {
                     'mainView': {
                         controller: 'platoCtrl',
-                        controllerAs: 'platoCtrl',
+                        controllerAs: 'ctrl',
                         templateUrl: basePath + 'plato.create.html'
+                    }
+                }
+            }).state('platoDelete', {
+                url: '/platos/:platoId',
+                param: {
+                    platoId: null
+                },
+                views:{
+                    'mainView': {
+                        controller: 'platoCtrl',
+                        controllerAs: 'ctrl',
+                        templateUrl: basePath + 'plato.delete.html'
                     }
                 }
             });

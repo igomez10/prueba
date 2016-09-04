@@ -11,25 +11,25 @@
           </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
           <label class="control-label col-sm-2">Precio:</label>
           <div class="col-sm-5"> 
-            <input type="text" class="form-control" id="precioPlato" placeholder="Precio Plato"  ng-model="currentRecord.precio" ng-init="currentRecord.precio" required >
+              <input type="text" name="nombre" class="form-control" id="precioPlato" placeholder="Precio Plato"  ng-model="currentRecord.precio" ng-init="currentRecord.precio" required >
           </div>
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group"  ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}">
           <label class="control-label col-sm-2">Descripción:</label>
           <div class="col-sm-5"> 
-            <input type="text" class="form-control" id="descPlato" placeholder="Descripcion Plato"  ng-model="currentRecord.descripcion" ng-init="currentRecord.descripcion" required >
+            <input type="text" name="desc" class="form-control" id="descPlato" placeholder="Descripcion Plato"  ng-model="currentRecord.descripcion" ng-init="currentRecord.descripcion" required >
           </div>
         </div>
            
            
         <div class="form-group"> 
           <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Agregar Plato</button>
+              <button type="submit" class="btn btn-default">Guardar</button>
               <button type="button" class="btn btn-default" ui-sref="platoList">Cancel</button>
               
           </div>

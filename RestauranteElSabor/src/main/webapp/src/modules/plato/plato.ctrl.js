@@ -66,8 +66,18 @@
                         }, responseError);
                 };
             };
-
-
+            
+            
+             this.deleteRecord = function (id) {
+                currentRecord = $scope.currentRecord;
+                $http.delete(context + "/" + currentRecord.id)
+                        .then(function () {
+                            // $http.put es una promesa
+                            // cuando termine bien, cambie de estado
+                            $state.go('platoList');
+                        }, responseError);
+                        
+              };
 
             // -----------------------------------------------------------------
             // Funciones para manejra los mensajes en la aplicación
