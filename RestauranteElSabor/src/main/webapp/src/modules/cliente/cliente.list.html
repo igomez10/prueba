@@ -18,6 +18,10 @@
                 <td id="{{$index}}-nombre">{{record.nombre}}</td>
                 <td id="{{$index}}-apellidos">{{record.apellidos}}</td>
                 <td id="{{$index}}-direccion">{{record.direccion}}</td>
+                
+                <td>
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="clienteCtrl.deleteRecord(record.id)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                </td>
         </tr>
         
         </tbody>

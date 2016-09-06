@@ -49,13 +49,19 @@
                             $state.go('clienteList');
                         }, responseError);
              
-        }
+        };
         
+        this.deleteRecord = function(id)
+        {
+            currentRecord = $scope.currentRecord;
+            
+            return $http.delete(context, currentRecord).then(function() 
+            {
+                $state.go('clienteList');
+            }, responseError);
+        };
         
-         $scope.popup = 
-    {
-        opened: false
-    };
+ 
     
     this.open = function () 
     {  
