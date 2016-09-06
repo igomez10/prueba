@@ -57,7 +57,7 @@
             
             return $http.delete(context+"/"+ id).then(function() 
             {
-                $state.go('clienteCreate');
+                $state.reload();
             }, responseError);
         };
         
