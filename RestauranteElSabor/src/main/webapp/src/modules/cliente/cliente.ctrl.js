@@ -55,9 +55,9 @@
         {
             currentRecord = $scope.currentRecord;
             
-            return $http.delete(context, currentRecord).then(function() 
+            return $http.delete(context+"/"+ id).then(function() 
             {
-                $state.go('clienteList');
+                $state.go('clienteCreate');
             }, responseError);
         };
         
