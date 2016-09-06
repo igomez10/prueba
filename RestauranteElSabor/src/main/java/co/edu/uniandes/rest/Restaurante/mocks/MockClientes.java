@@ -29,10 +29,10 @@ public class MockClientes
     	if (clientes == null) 
         {
             clientes = new ArrayList<ClienteDTO>();
-            clientes.add(new ClienteDTO(1L, "Nombre1", "Apellidos1", "Direccion1"));
-            clientes.add(new ClienteDTO(2L, "Nombre2", "Apellidos2", "Direccion2"));
-            clientes.add(new ClienteDTO(3L, "Nombre3", "Apellidos3", "Direccion3"));
-            clientes.add(new ClienteDTO(4L, "Nombre4", "Apellidos4", "Direccion4"));
+            clientes.add(new ClienteDTO(1L, "Ignacio1", "Arboleda1", "DireccionPereira1"));
+            clientes.add(new ClienteDTO(2L, "Ignacio2", "Arboleda2", "DireccionPereira2"));
+            clientes.add(new ClienteDTO(3L, "Ignacio3", "Arboleda3", "DireccionPereira3"));
+            clientes.add(new ClienteDTO(4L, "Ignacio4", "Arboleda4", "DireccionPereira4"));
         }
         
     	// Indica que se muestren todos los mensajes
