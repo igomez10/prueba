@@ -38,7 +38,7 @@
             $scope.alerts = [];
         }
         
-        this.saveRecord = function (id) 
+        this.saveRecord = function () 
         {
             currentRecord = $scope.currentRecord;        
             
@@ -53,21 +53,23 @@
         
         this.deleteRecord = function(id)
         {
-            currentRecord = $scope.currentRecord;
-            
             return $http.delete(context+"/"+ id).then(function() 
             {
                 $state.reload();
             }, responseError);
         };
         
- 
-    
-    this.open = function () 
-    {  
-        $scope.popup.opened = true;
-    };
-
+        this.editRecord = function()
+        {
+            currentRecord = $scope.currentRecord;
+            id = $stateParams.clienteId;
+            currentRecord.id = id;
+            return $http.put(context, currentRecord).then(function() 
+                    {
+                        $state.go('clienteList');
+                    }, responseError);
+        }
+        
 
      // -----------------------------------------------------------------
      // Funciones para manejra los mensajes en la aplicación

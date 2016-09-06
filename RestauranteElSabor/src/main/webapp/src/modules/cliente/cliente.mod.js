@@ -37,10 +37,11 @@
 
             }).state('clienteEdit', 
             {
-                url: '/clientes/:clienteId',
+                url: '/{clienteId:int}/edit',
                 param: 
                 {
-                    clienteId: null
+                    //  TODO: AVERIGUAR COMO SE PASAN PARAMETROS
+                    clienteId: 'clienteId'
                 },
                 views: 
                 {
@@ -48,7 +49,7 @@
                     {
                         controller: 'clienteCtrl',
                         controllerAs: 'clienteCtrl',
-                        templateUrl: basePath + 'cliente.create.html'
+                        templateUrl: basePath + 'cliente.edit.html'
                     }
                 }
             });

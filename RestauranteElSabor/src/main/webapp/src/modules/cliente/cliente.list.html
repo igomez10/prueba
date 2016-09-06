@@ -20,7 +20,8 @@
                 <td id="{{$index}}-direccion">{{record.direccion}}</td>
                 
                 <td>
-                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="clienteCtrl.deleteRecord(record.id)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                    <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="clienteEdit({clienteId: record.id})"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="clienteCtrl.deleteRecord(record.id)"><span class="glyphicon glyphicon-minus"></span>Eliminar</button>
                 </td>
         </tr>
         

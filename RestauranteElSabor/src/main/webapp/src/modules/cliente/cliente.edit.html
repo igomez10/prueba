@@ -1,0 +1,43 @@
+<div>
+    <h1>Editar Cliente</h1>
+    <p1>Escribir texto.</p1>
+    
+</div>
+        
+   
+<div class="container well">
+        
+        <h2>Ingresa los nuevos datos</h2>
+        
+        <form novalidate name ="form" id="formaCliente" role="form" class="form-horizontal" ng-submit="form.$valid && clienteCtrl.editRecord()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Nombre:</label>
+                    <div class="col-sm-5"> 
+                        <input type="text" class="form-control" id="nombre" placeholder="Su nombre"  ng-model="currentRecord.nombre" ng-init="currentRecord.nombre" required >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Apellidos:</label>
+                    <div class="col-sm-5"> 
+                        <input type="text" class="form-control" id="apellidos" placeholder="Sus apellidos"  ng-model="currentRecord.apellidos" ng-init="currentRecord.apellidos" required >
+                    </div>
+                </div>
+      
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Direccion:</label>
+                    <div class="col-sm-5"> 
+                        <input type="text" class="form-control" id="direccion" placeholder="Su direccion"  ng-model="currentRecord.direccion" ng-init="currentRecord.direccion" required >
+                    </div>
+                </div>
+           
+                <div class="form-group"> 
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Editar</button>
+                    </div>
+                </div>
+            </fieldset>>
+        </form>
+        
+</div>
