@@ -1,0 +1,10 @@
+﻿{
+ "name": "npm-to-maven-adapator",
+ "version": "0.0.1-SNAPSHOT",
+ "description": "package-json-file",
+ "private": true,
+ "scripts": {
+ "bower":"bower install"
+ },
+ "devDependencies": {}
+}
