@@ -7,8 +7,7 @@
         'mediodepagoModule',
         'platoModule',
         'reservaModule',
-        'sucursalModule',
-        
+        'sucursalModule'
     ]);
     app.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);

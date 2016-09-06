@@ -32,7 +32,7 @@
                     ciudad: '',
                     direccion: '',
                     mesas: undefined,
-                    calificacion: undefined,
+                    calificacion: undefined
                 };
               
                 $scope.alerts = [];
