@@ -30,26 +30,25 @@
             $scope.currentRecord = 
             {
                 id: undefined,
-                nombre: 's',
+                nombre: '',
                 precio: undefined,
-                descripcion: 'ss'
+                direccion: ''
             };
              
             $scope.alerts = [];
         }
         
-        this.saveRecord = function (id, nombre, apellidos, direccion) 
+        this.saveRecord = function (id) 
         {
             currentRecord = $scope.currentRecord;        
             
-            if (id != null) 
-            {
+            // Por ahora solo agrega, no modifica
                 // ejecuta POST en el recurso REST
                 return $http.post(context, currentRecord).then(function() 
                         {
                             $state.go('clienteList');
                         }, responseError);
-            } 
+             
         }
         
         

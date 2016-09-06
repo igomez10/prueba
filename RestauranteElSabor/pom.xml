@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>BSoD</groupId>
-    <artifactId>RestauranteElSabor</artifactId>
+    <artifactId>RestaurantesElSabor</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>RestauranteElSabor</name>
+    <name>RestaurantesElSabor</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
