@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>RESERVAS</title>
-        
-    </head>
-    <body>
-        <div class="container">
-            <h2>Lista de Reservas</h2>
-            
-            <table class="table table-striped" class="col-md-6">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Fecha</th>
-        <th>Cantidad Personas</th>
-        <th>Piso</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-  
-         <tr ng-repeat="record in records">
-            <td id ="{{$index}}-id">{{record.id}}</td>
-            <td id ="{{$index}}-fecha">{{record.fecha}}</td>
-            <td id ="{{$index}}-numPersonas">{{record.numPersonas}}</td>
-            <td id ="{{$index}}-piso">{{record.piso}}</td>
-            
-            <td><button  id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="reservaEdit({reservaId: record.id})"><span class="glyphicon glyphicon-edit"></span>Editar</button>
-                <button  id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span>Eliminar</button>
-             </td>
-        </tr>
-    </tbody>
-            </table>
-        </div>
-    </body>
-</html>
+
+<head>
+    <title>RESERVAS</title>
+
+</head>
+<div>
+    <div class="container">
+        <h2>Lista de Reservas</h2>
+
+        <table class="table table-striped" class="col-md-6">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Cantidad Personas</th>
+                    <th>Piso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="record in records">
+                    <td id ="{{$index}}-id">{{record.id}}</td>
+                    <td id ="{{$index}}-fecha">{{record.fecha}}</td>
+                    <td id ="{{$index}}-numPersonas">{{record.numPersonas}}</td>
+                    <td id ="{{$index}}-piso">{{record.piso}}</td>
+
+                    <td><button  id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="reservaEdit({reservaId: record.id})"><span class="glyphicon glyphicon-edit"></span>Editar</button>
+                        <button  id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="reservaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span>Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
