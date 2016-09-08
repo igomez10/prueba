@@ -14,7 +14,7 @@ import java.util.Date;
 
 
 
-public class MedioDePagoDTO
+public class MedioDTO
 {
 
     //ATRIBUTOS ATRIBUTOS ATRIBUTOS ATRIBUTOS ----------
@@ -33,12 +33,12 @@ public class MedioDePagoDTO
 
     private String franquicia;
 
-    public MedioDePagoDTO()
+    public MedioDTO()
     {   }
 
     //CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR-----------
 
-    public MedioDePagoDTO(Integer pId, Boolean pEfectivo, String pTarjeta, Integer pNumerosTarjeta, Date pFechaVencimiento, Integer pCodigoSeguridad, String pFranquicia )
+    public MedioDTO(Integer pId, Boolean pEfectivo, String pTarjeta, Integer pNumerosTarjeta, Date pFechaVencimiento, Integer pCodigoSeguridad, String pFranquicia )
     {
         super();
         this.id = pId;

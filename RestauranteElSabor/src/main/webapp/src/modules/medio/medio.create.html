@@ -1,60 +1,61 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
     <div class="container">
         <h1>Restaurante el Sabor</h1>
 
     <form class="form-horizontal">
+        
+       <!--aqui inicia el CHECKBOX DE EFECTIVO -->
         <div class="form-group">
           <label class="control-label col-sm-2">Efectivo:</label>
           <div class="col-sm-5">
-            <input type="checkbox" class="form-control" id="efectivoMedioDePago" placeholder="Efectivo Medio de pago">
+            <input type="checkbox" class="form-control" id="efectivoMedio">
           </div>
         </div>
 
+       <!--aqui inicia la DESCRIPCION DE LA TARJETA -->
         <div class="form-group">
           <label class="control-label col-sm-2">Tarjeta:</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="tarjetaMedioDePago" placeholder="Descripcion de tarjeta Medio de pago">
+            <input type="text" class="form-control" id="tarjetaMedio" placeholder="Descripcion de tarjeta Medio de pago">
           </div>
         </div>
 
-
+       <!--aqui inician los NUMEROS DE LA TARJETA -->
         <div class="form-group">
           <label class="control-label col-sm-2">NumerosTarjeta:</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="numerosTarjetaMedioDePago" placeholder="Numeros Tarjeta de Medio de Pago">
+            <input type="text" class="form-control" id="numerosTarjetaMedio" placeholder="Numeros Tarjeta de Medio de Pago">
           </div>
         </div>
 
+       <!--aqui inicia FECHA DE VENCIMIENTO DE LA TARJETA -->
         <div class="form-group">
           <label class="control-label col-sm-2">FechaVencimiento:</label>
           <div class="col-sm-5">
-            <input type="date" class="form-control" id="fechaVencimientoMedioDePago" placeholder="Fecha de vencimiento de medio de pago">
+            <input type="date" class="form-control" id="fechaVencimientoMedio">
           </div>
         </div>
 
+       
         <div class="form-group">
           <label class="control-label col-sm-2">CodigoDeSeguridad:</label>
           <div class="col-sm-5">
-            <input type="number" class="form-control" id="codigoDeSeguridadMedioDePago" placeholder="Codigo de seguridad de medio de pago">
+            <input type="number" class="form-control" id="codigoDeSeguridadMedio" placeholder="Codigo de seguridad de medio de pago">
           </div>
         </div>
 
         <div class="form-group">
           <label class="control-label col-sm-2">Franquicia:</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="franquiciaMedioDePago" placeholder="Franquicia de medio de pago">
+            <input type="text" class="form-control" id="franquiciaMedio" placeholder="Franquicia de medio de pago">
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Agregar Medio de pago</button>
+            <button type="button" class="btn btn-default" id="btnCancelarMedio">Cancel</button>
+
           </div>
         </div>
     </form>

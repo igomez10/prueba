@@ -5,9 +5,9 @@
  */
 package co.edu.uniandes.rest.Restaurante.resources;
 
-import co.edu.uniandes.rest.Restaurante.dtos.MedioDePagoDTO;
+import co.edu.uniandes.rest.Restaurante.dtos.MedioDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
-import co.edu.uniandes.rest.Restaurante.mocks.MockMedioDePago;
+import co.edu.uniandes.rest.Restaurante.mocks.MockMedio;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -22,12 +22,12 @@ import javax.ws.rs.Produces;
  *
  * @author igomez10
  */
-@Path("mediosdepago")
+@Path("medios")
 @Produces("application/json")
 @Consumes("application/json")
-public class RecursoMedioDePago
+public class RecursoMedio
     {
-        MockMedioDePago mockMedioDePago = new MockMedioDePago();
+        MockMedio mockMedio = new MockMedio();
         
 
     /**
@@ -36,45 +36,45 @@ public class RecursoMedioDePago
      * @throws LogicaRestauranteException Si no existe una lista de medios de pago en el sistema.
      */
     @GET
-    public List<MedioDePagoDTO> darMediosDePago() throws LogicaRestauranteException
+    public List<MedioDTO> darMedios() throws LogicaRestauranteException
     {
-        return mockMedioDePago.darMediosDePago();
+        return mockMedio.darMedios();
     }
 
      /**
      * Obtiene el medio de pago con el identificador buscado.
      * @param pId Identificador del medio de pago buscado
-     * @return MedioDePagoDTO medio de pago buscado.
+     * @return MedioDTO medio de pago buscado.
      * @throws LogicaRestauranteException Si no existe un medio de pago con el identificador dado.
      */
     @GET
     @Path("{id: \\d+}")
-      public MedioDePagoDTO darMedioDePago(@PathParam("id") Integer pId) throws LogicaRestauranteException
+      public MedioDTO darMedio(@PathParam("id") Integer pId) throws LogicaRestauranteException
     {
-        return mockMedioDePago.darMedioDePago(pId);
+        return mockMedio.darMedio(pId);
     }
 
 
      /**
-     * Crea una nueva instancia de MedioDePago.
-     * @return mediodepagoDTO mediode pago creado.
+     * Crea una nueva instancia de Medio.
+     * @return medioDTO medio de pago creado.
      * @throws LogicaRestauranteException Si ya existe un medio de pago con ese id.
      */
     @POST
-    public MedioDePagoDTO crearMedioDePago(MedioDePagoDTO nuevoMedioDePago) throws LogicaRestauranteException
+    public MedioDTO crearMedio(MedioDTO nuevoMedio) throws LogicaRestauranteException
     {
-        return mockMedioDePago.crearMedioDePago(nuevoMedioDePago);
+        return mockMedio.crearMedio(nuevoMedio);
     }
 
     /**
      *
-     * @param MedioDePagoDTO medio de pago a actualizar.
+     * @param MedioDTO medio de pago a actualizar.
      * @throws LogicaRestauranteException Si no existe un medio de pago con el id dado.
      */
     @PUT
-    public MedioDePagoDTO actualizarMedioDePago(MedioDePagoDTO medioDePagoActualizado) throws LogicaRestauranteException
+    public MedioDTO actualizarMedio(MedioDTO medioActualizado) throws LogicaRestauranteException
     {
-        return mockMedioDePago.actualizarMedioDePago(medioDePagoActualizado);
+        return mockMedio.actualizarMedio(medioActualizado);
     }
 
     /**
@@ -84,8 +84,8 @@ public class RecursoMedioDePago
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void eliminarMedioDePago(@PathParam("id") Integer pId) throws LogicaRestauranteException
+    public void eliminarMedio(@PathParam("id") Integer pId) throws LogicaRestauranteException
     {
-        mockMedioDePago.eliminarMedioDePago(pId);
+        mockMedio.eliminarMedio(pId);
     }
 }

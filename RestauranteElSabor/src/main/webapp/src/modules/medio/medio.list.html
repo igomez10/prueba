@@ -1,0 +1,69 @@
+<div class="container">
+    <h2>Lista de Medios de Pago</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Efectivo</th>
+                <th>Tarjeta</th>
+                <th>NumerosTarjeta</th>
+                <th>FechaVencimiento</th>
+                <th>CodigoSeguridad</th>
+                <th>Franquicia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in records">
+                <td id = "{{$index}}-name">{{record.id}}</td>
+                <td id = "{{$index}}-name">{{record.efectivo}}</td>
+                <td id = "{{$index}}-name">{{record.tarjeta}}</td>
+                <td id = "{{$index}}-name">{{record.numerosTarjeta}}</td>
+                <td id = "{{$index}}-name">{{record.fechaVencimiento}}</td>
+                <td id = "{{$index}}-name">{{record.codigoSeguridad}}</td>
+                <td id = "{{$index}}-name">{{record.franquicia}}</td>
+                
+                <td>
+                    <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" data-ui-sref="medioEdit({medioId:record.id">
+                    <span class="glyphicon glyphicon-edit"></span>Editar</button>
+                    
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" data-ui-sref="medioDelete({medioId : record.id">
+                        <span class="glyphicon glyphicon-minus"></span>Eliminar</button>
+                </td>
+            </tr>
+                
+            <tr>
+                <td>1</td>
+                <td>False</td>
+                <td>Tarjeta empresa</td>
+                <td>1234432145679876</td>
+                <td>02/17</td>
+                <td>123</td>
+                <td>Visa</td>
+                <td><button  class="btn btn-default">Editar</button><button  class="btn btn-default">Eliminar</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>False</td>
+                <td>Tarjeta personal</td>
+                <td>1234434545679876</td>
+                <td>02/19</td>
+                <td>321</td>
+                <td>MasterCard</td>
+                <td><button  class="btn btn-default">Editar</button><button  class="btn btn-default">Eliminar</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>False</td>
+                <td>Tarjeta esposo</td>
+                <td>1234432147879876</td>
+                <td>04/20</td>
+                <td>345</td>
+                <td>Amex</td>
+                <td><button  class="btn btn-default">Editar</button><button  class="btn btn-default">Eliminar</button></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>

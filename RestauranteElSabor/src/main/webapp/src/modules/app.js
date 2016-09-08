@@ -4,7 +4,7 @@
         'ngMessages',
         'clienteModule',
         'domiciliosModule',
-        'mediodepagoModule',
+        'medioModule',
         'platoModule',
         'reservaModule',
         'sucursalModule'
