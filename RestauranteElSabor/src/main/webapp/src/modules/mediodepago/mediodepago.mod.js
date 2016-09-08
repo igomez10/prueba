@@ -1,52 +1,59 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- /*
   * To change this license header, choose License Headers in Project Properties.
   * To change this template file, choose Tools | Templates
   * and open the template in the editor.
   */
  (function(ng){
-     var mod = ng.module("mediodepagoModule",["ngMessages","ui.router"] );
-     mod.constant("mediodepagoContext", "api/mediosdepago");
+     var mod = ng.module("medioDePagoModule",["ngMessages","ui.router"] );
+     mod.constant("medioDePagoContext", "api/medioDePago");
         mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-             var basePath = 'src/modules/mediodepago/';
-             $urlRouterProvider.otherwise("/mediodepagoList");
+             var basePath = 'src/modules/medioDePago/';
+             $urlRouterProvider.otherwise("/medioDePagoList");
 
-             $stateProvider.state('mediodepagoList', {
-                 url: '/mediosdepago',
+             $stateProvider.state('medioDePagoList', {
+                 url: '/medioDePago',
                  views: {
                      'mainView': {
-                         controller: 'mediodepagoCtrl',
-                         controllerAs: 'mediodepagoCtrl',
-                         templateUrl: basePath + 'mediodepago.list.html'
+                         controller: 'medioDePagoCtrl',
+                         controllerAs: 'ctrl',
+                         templateUrl: basePath + 'medioDePago.list.html'
                      }
                  }
-             }).state('mediodepagoCreate', {
-                 url: '/mediosdepago/create',
+             }).state('medioDePagoCreate', {
+                 url: '/medioDePago/create',
                  views: {
                      'mainView': {
-                         controller: 'mediodepagoCtrl',
-                         controllerAs: 'mediodepagoCtrl',
-                         templateUrl: basePath + 'mediodepago.create.html'
+                         controller: 'medioDePagoCtrl',
+                         controllerAs: 'ctrl',
+                         templateUrl: basePath + 'medioDePago.create.html'
                      }
                  }
 
-             }).state('mediodepagoEdit', {
-                 url: '/mediosdepago/:mediodepagoId',
+             }).state('medioDePagoEdit', {
+                 url: '/medioDePago/:medioDePagoId',
                  param: {
-                     mediodepagoId: null
+                     medioDePagoId: null
                  },
                  views: {
                      'mainView': {
-                         controller: 'mediodepagoCtrl',
-                         controllerAs: 'mediodepagoCtrl',
-                         templateUrl: basePath + 'mediodepago.create.html'
+                         controller: 'medioDePpagoCtrl',
+                         controllerAs: 'ctrl',
+                         templateUrl: basePath + 'medioDePago.create.html'
                      }
                  }
-             });
-         }]);
-
- })(window.angular);
+             }).state('medioDePagoDelete', {
+                url: '/medioDePago/:medioDePagoId',
+                param: {
+                    medioDePagoId: null
+                },
+                views:{
+                    'mainView': {
+                        controller: 'medioDePagoCtrl',
+                        controllerAs: 'ctrl',
+                        templateUrl: basePath + 'medioDePago.delete.html'
+                    }
+                }
+            });
+        }]);
+    
+})(window.angular);
