@@ -6,7 +6,7 @@
 package co.edu.uniandes.rest.Restaurante.resources;
 
 import co.edu.uniandes.rest.Restaurante.mocks.MockClientes;
-import co.edu.uniandes.rest.cities.dtos.ClienteDTO;
+import co.edu.uniandes.rest.Restaurante.dtos.ClienteDTO;
 import co.edu.uniandes.rest.cities.exceptions.LogicaRestauranteException;
 
 import java.util.List;

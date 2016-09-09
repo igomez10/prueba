@@ -32,7 +32,8 @@
                 id: undefined,
                 nombre: '',
                 precio: undefined,
-                direccion: ''
+                direccion: '',
+                telefono: undefined
             };
              
             $scope.alerts = [];
