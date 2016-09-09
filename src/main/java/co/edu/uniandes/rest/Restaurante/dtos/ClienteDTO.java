@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.cities.dtos;
+package co.edu.uniandes.rest.Restaurante.dtos;
 
 /**
  *
@@ -18,6 +18,8 @@ public class ClienteDTO
     private String apellidos;
     
     private String direccion;
+    
+    private int telefono;
     
     public ClienteDTO()
     {   }
@@ -70,6 +72,16 @@ public class ClienteDTO
     {
         this.direccion = direccion;
     }
+    
+    public int getTelefono()
+    {
+        return telefono;
+    }
+    
+    public void setTeelefono(int telefono)
+    {
+        this.telefono = telefono;
+    }
         
     /**
      * Representacion JSON de un cliente
@@ -79,7 +91,7 @@ public class ClienteDTO
     public String toString() 
     {
     	return "{ id : " + id +", nombre : \""+ nombre +"\", apellidos : \""+apellidos+"\", "
-                + "direccion : \""+direccion+"\" }" ;  
+                +", telefono : \""+ telefono + ", direccion : \""+direccion+"\" }" ;  
     }
     
 }
