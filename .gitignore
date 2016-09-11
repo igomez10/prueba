@@ -22,16 +22,11 @@ hs_err_pid*
 
 # -- From Javascript
 
-# Bower
-bower_components/
-/src/main/webapp/bower_components/
 
 # Grunt 
 .grunt
 npm-debug.log
 
-# npm
-node_modules/
 
 # -- From Editors and IDEs
 

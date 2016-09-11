@@ -38,34 +38,24 @@
 				</configuration>
 			</plugin>
 
-			<!-- Ejecuta "bower install" durante la compilación         -->
-			<!-- NOTA: bower debe estar en el PATH de los computadores -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.3.2</version>
-				<executions>
-					<execution>
-						<id>running bower using npm</id>
-						<goals>
+			<!-- Ejecuta bower atraves de npm -->
+<!-- NOTA: bower debe estar instalado localmente – osea que el archivo (root-project-dir/node_modules/bower) tiene que existir -->
+<plugin>
+<groupId>org.codehaus.mojo</groupId> <artifactId>exec-maven-plugin</artifactId> <version>1.3.2</version>
+<executions>
+<execution>
+<id>running bower using npm</id> <goals>
 							<goal>exec</goal>
 						</goals>
-						<phase>generate-sources</phase>
-						<configuration>
-							<executable>npm</executable>
-							<arguments>
-								<argument>run</argument>
-								<argument>bower</argument>
-							</arguments>
+<phase>generate-sources</phase> <configuration>
+<executable>npm</executable> <arguments>
+<argument>run</argument>
+<argument>bower</argument> </arguments>
 						</configuration>
 					</execution>
-				</executions>
-				<configuration>
-
-					<workingDirectory>${basedir}</workingDirectory>
-				</configuration>
-			</plugin>
-
+</executions> <configuration>
+<workingDirectory>${basedir}</workingDirectory> </configuration>
+</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
